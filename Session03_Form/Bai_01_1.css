@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;  
+}
+body{
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heding{
+    background-color: chocolate;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: bisque;
+    font-weight: 300;
+    font-size: 20px;
+}
+.form-favorite{
+    width: 400px;
+    height: 220px;
+    background-color: rgb(199, 245, 229);
+    padding: 10px;
+}
+.content{
+    background-color: rgb(246, 246, 247);
+    height: 100%;
+}
+.input-name label,
+.input-email label,
+.choose label {
+    width: 70px;
+    display: inline-block;
+    text-align: right;
+    margin:5px 4px;
+    color: blue;
+}
+.input-name input{
+    width: 200px;
+    height: 20px;
+    padding-left: 5px;
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #333;
+}
+
+.input-email input{
+    width: 150px;
+    height: 20px;
+    padding-left: 5px;
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #333;
+}
+
+.choose{
+    display: flex;
+    width: 100%;
+}
+.checkbox{
+    display: inline-block;
+    margin-top: 10px;
+}
+.checkbox-row{
+    margin-bottom: 8px;
+    display: flex;
+}
+.checkbox-row_item{
+    width: 90px;
+    margin-left: 4px;
+    color: chocolate;
+}
+.submit{
+    margin-left: 80px;
+    border-radius: none;
+}
+.submit-button {
+    padding: 2px 4px;
+    box-shadow: 1px 2px #333;
+}

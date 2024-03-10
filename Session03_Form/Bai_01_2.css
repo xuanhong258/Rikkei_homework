@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;  
+}
+
+.overlay{
+    display: flex;
+    width: 100%;
+    height: 800px;
+}
+
+form{
+    width: 400px;
+    background-color: rgb(248, 239, 188);
+    margin: auto;
+    padding: 8px;
+}
+
+.form-heading{
+    background-color: rgb(186, 235, 186);
+    color: blue;
+    font-weight: 600;
+    line-height: 26px;
+}
+.form-heading span {
+    margin-left: 6px;
+}
+.form-body{
+    margin-top: 6px;
+}
+
+.form-body_left {
+    margin-bottom: 12px;
+}
+.form-body_name label,
+.form-body_date label,
+.form-body_general .general,
+.form-body_address label,
+.form-body_class label,
+.form-body_email label,
+.form-body_phone label{
+    display: inline-block;
+    width: 90px;
+    color: blue;
+}
+.form-body_date input{
+    width: 100px;
+}
+.form-body_name input{
+    width: 200px;
+}
+.form-submit{
+    margin-left: 92px;
+}
+
+.form-body_address{
+    height: 50px;
+}
+.form-body_address{
+    display: flex;
+}
+.form-body_address input{
+    height: 100%;
+    width: 180px;
+}
+.form-submit_button{
+    padding: 2px 9px;
+    font-size: 16px;
+    border: none;
+    box-shadow: 1px 2px #333;
+    cursor: pointer;
+}
+.form-body_class select{
+    height: 22px;
+}
+.form-body_email input,
+.form-body_phone input{
+    width: 140px;
+    height: 18px;
+}
+.form-body_name input,
+.form-body_date input{
+    height: 18px;
+}

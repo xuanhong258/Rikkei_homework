@@ -1,0 +1,169 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-bill{
+    background-color: #f8f9fa;
+    padding: 8px;
+    border-radius: 2px;
+    width: 440px;
+}
+
+.form-bill-header,
+.form-bill_payment-text{
+    font-weight: bold;
+}
+.form-bill_name{
+    display: flex;
+    margin-top: 12px;
+}
+
+.form-bill_firstname input,
+.form-bill_lastname input{
+    width: 100%;
+}
+
+.form-bill_firstname{
+    margin-right: 10px;
+}
+
+.boder-style{
+    border: 1px solid #f4f5f7;
+    border-radius: 2px;
+    height: 28px;
+    margin-top: 6px;
+}
+
+.margin-top{
+    margin-top: 6px;
+}
+
+.username_infor input,
+.form-bill_email input,
+.form-bill_address input,
+.form-bill_adress-2 input{
+    width: calc(100% - 8px);
+    padding-left: 8px;
+}
+
+.username_infor{
+    display: flex;
+}
+.username_infor span{
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-bill_other{
+    display: flex;
+}
+.bill-country {
+    width: 40%;
+    padding-right: 5px;
+}
+.bill-country select,
+.bill-state select,
+.bill-zip input {
+    width: 100%;
+}
+
+.bill-state{
+    width: 30%;
+    padding: 0 5px;
+}
+.bill-zip{
+    width: 30%;
+    padding-left: 5px;
+}
+.form-bill_choose{
+    margin: 16px 0;
+    padding: 12px 0;
+    border-top: 1px solid #eeeff0;
+    border-bottom: 1px solid #eeeff0;
+}
+
+.bill_choose-1{
+    padding-bottom: 6px;
+}
+
+.form-bill_payment-type{
+    margin-bottom: 20px;
+}
+
+.form-bill_payment-infor-card{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-bill_payment-infor-name-card input,
+.form-bill_payment-infor-number-card input{
+    width: 100%;
+}
+
+.form-bill_payment-infor-name-card{
+    padding-right: 10px;
+    width: 50%;
+}
+.form-bill_payment-infor-number-card{
+    padding-left: 10px;
+    width: 50%;
+}
+
+.form-bill_payment-infor span{
+    font-size: 12px;
+    color: #95979a;
+}
+
+.form-bill_payment-other{
+    padding-top: 20px;
+    display: flex;
+    width: calc(50% - 10px);
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 10px;
+}
+
+.expiration, .cvv  {
+    width: 50%;
+}
+
+.expiration input, .cvv input {
+    width: 100%;
+}
+
+.expiration {
+    padding-right: 10px;
+}
+
+.cvv{
+    padding-left: 10px;
+}
+
+.form-bill_button {
+    border-top: 1px solid #f1f2f3;
+    padding: 20px 0 10px 0;
+    margin-top: 20px;
+}
+
+.form-bill_button button {
+    padding: 10px;
+    border: none;
+    background-color: #0b6ffd;
+    width: calc(100% - 20px);
+    border-radius: 6px;
+    color: #edf4ff;
+    font-size: 16px;
+}
+
+

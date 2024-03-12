@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai_10</title>
+    <link rel="stylesheet" href="./Bai_10.css">
+</head>
+<body>
+    <div class="form-bill">
+        <div class="form-bill_infor">
+            <div class="form-bill-header">Billing address</div>
+            <div class="form-bill_name ">
+                <div class="form-bill_firstname">
+                    <label for="">First name</label>
+                    <input type="text" class="boder-style">
+                </div>
+                <div class="form-bill_lastname ">
+                    <label for="">Last name</label>
+                    <input type="text" class="boder-style">
+                </div>
+            </div>
+    
+            <div class="form-bill_username margin-top">
+                <label for="">Username</label>
+                <div class="username_infor">
+                    <span class="margin-top boder-style">@</span>
+                    <input type="text" placeholder="Username" class="boder-style">
+                </div>
+            </div>
+    
+            <div class="form-bill_email margin-top">
+                <label for="">Email <span>(Optional)</span></label>
+                <input type="text" placeholder="you@example.com" class="margin-top boder-style">
+            </div>
+            <div class="form-bill_address margin-top">
+                <label for="">Address</label>
+                <input type="text" placeholder="1234 Main St" class="margin-top boder-style">
+            </div>
+            <div class="form-bill_adress-2 margin-top">
+                <label for="">Address 2 <span>(Optinal)</span></label>
+                <input type="text" placeholder="Apartment or suite"  class="margin-top boder-style">
+            </div>
+            <div class="form-bill_other margin-top">
+                <div class="bill-country">
+                    <label for="">Country</label>
+                    <select name="" id="" class="boder-style">
+                        <option value="">Choose...</option>
+                    </select>
+                </div>
+                <div class="bill-state">
+                    <label for="">State</label>
+                    <select name="" id="" class="boder-style">
+                        <option value="" >Choose...</option>
+                    </select>
+                </div>
+                <div class="bill-zip">
+                    <label for="">Zip</label>
+                    <input type="text" class="boder-style">
+                </div>
+            </div>
+        </div>
+        <div class="form-bill_choose">
+            <div class="bill_choose-1">
+                <input type="checkbox">
+                <label for="">Shipping address is the same as my billing address</label>
+            </div>
+            <div class="bill_choose-2">
+                <input type="checkbox">
+                <label for="">Save this information for next time</label>
+            </div>
+        </div>
+
+        <div class="form-bill_payment">
+            <div class="form-bill_payment-text">
+                Payment
+            </div>
+        </div>
+        <div class="form-bill_payment-type">
+            <div class="payment-type-1 margin-top">
+                <input type="radio" checked>
+                <label for=""> Credit card</label>
+            </div>
+            <div class="payment-type-1 margin-top">
+                <input type="radio">
+                <label for="">Debit card</label>
+            </div>
+            <div class="payment-type-1 margin-top">
+                <input type="radio">
+                <label for="">PayPal</label>
+            </div>
+        </div>
+        <div class="form-bill_payment-infor">
+            <div class="form-bill_payment-infor-card">
+                <div class="form-bill_payment-infor-name-card">
+                    <label for="">Name on card</label>
+                    <input type="text" class="boder-style">
+                </div>
+                <div class="form-bill_payment-infor-number-card">
+                    <label for="">Credit card number</label>
+                    <input type="text" class="boder-style">
+                </div>
+            </div>
+            <span>Full name as displayed on card</span>
+            <div class="form-bill_payment-other">
+                <div class="expiration">
+                    <label for="">Expiration</label>
+                    <input type="text" class="boder-style">
+                </div>
+                <div class="cvv">
+                    <label for="">CVV</label>
+                    <input type="text" class="boder-style">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-bill_button">
+            <button>Continue to checkout</button>
+        </div>
+
+    </div>
+</body>
+</html>

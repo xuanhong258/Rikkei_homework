@@ -1,0 +1,35 @@
+.notice{
+    text-align: center;
+}
+
+.notice-header,
+.notice-footer {
+    background-color: #f7f7f7;
+    padding: 2px 0;
+    border: 1px solid #eeeeee;
+}
+
+.notice-body{
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
+    padding: 16px 0;
+}
+
+div button{
+    padding: 8px 10px;
+    background-color: #0870f8;
+    border: none;
+    border-radius: 2px;
+    color: #f7f7f7;
+    cursor: pointer;
+}
+
+.notice-footer{
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    color: #8a9096;
+}
+.notice-header{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}

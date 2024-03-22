@@ -112,24 +112,24 @@
 //Số nguyên tố là tập hợp của những số tự nhiên 
 //chỉ chia hết cho số 1 và chính nó
 
-// let number = +prompt("Nhap vao so n:");
+let number = +prompt("Nhap vao so n:");
 
 
-// if (!isNaN(number) && number > 0) {
-//     for(let i = 3; i < number; i++){
-//         let isCheck = true;
-//         for(let j = 2; j <= Math.sqrt(i); j++){
-//             if(i % j === 0){
-//                 isCheck = false;
-//             }
-//         }
-//         if (isCheck) {
-//             console.log(i);
-//         }
-//     }
-// }else{
-//     console.log("Gia tri nhap vao chua chinh xac");
-//}
+if (!isNaN(number) && number > 0) {
+    for(let i = 2; i < number; i++){
+        let isCheck = true;
+        for(let j = 2; j <= Math.sqrt(i); j++){
+            if(i % j === 0){
+                isCheck = false;
+            }
+        }
+        if (isCheck) {
+            console.log(i);
+        }
+    }
+}else{
+    console.log("Gia tri nhap vao chua chinh xac");
+}
 
 //-------------------Bai 9----------------------------
 
@@ -159,7 +159,7 @@
 
 //-------------------Bai 10----------------------------
 
-let number = +prompt("Nhap vao so n:");
+// let number = +prompt("Nhap vao so n:");
 
 // let print = "";
 // // for (let i = 1; i <= number; i++) {
@@ -170,18 +170,18 @@ let number = +prompt("Nhap vao so n:");
 // //     print = "";
 // // }
 
-let i ;
-let j ;
-for(i = 1; i <= number; i++){
-    for(j = 1; j <= number - i; j++) {
-        print += " ";
-    }
-    for(j = 1; j <= i; j++){
-        print += "*";
-    }
-    console.log(print);
-    print = "";
-}
+// let i ;
+// let j ;
+// for(i = 1; i <= number; i++){
+//     for(j = 1; j <= number - i; j++) {
+//         print += " ";
+//     }
+//     for(j = 1; j <= i; j++){
+//         print += "*";
+//     }
+//     console.log(print);
+//     print = "";
+// }
 
 
 

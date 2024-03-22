@@ -40,16 +40,21 @@
 // let a = +prompt("Nhap vao so nguyen duong a:");
 // let b = +prompt("Nhap vao so nguyen duong b:");
 
-// if (!isNaN(a) && !isNaN(b) && a > 0 && b > 0) {
-//     for (let i = 1; i <= a; i++) {
-//         if(i % b === 0) {
-//             console.log(`Cac so chia het cho ${b} la: ${i}`);
-//         }
-//     }
-// }else{
-//     console.log("Gia tri nhap vao chua chinh xac");
-// }
-
+if (isNaN(a) || isNaN(b)) {
+  console.log("Gia tri nhap vao chua chinh xac");
+} else if (!Number.isInteger(a) || !Number.isInteger(b)) {
+  console.log("Gia tri nhap vao chua chinh xac");
+} else {
+  if (a <= 0 || b <= 0) {
+    console.log("Gia tri nhap vao chua chinh xac");
+  } else {
+    for (let i = 1; i <= a; i++) {
+      if (i % b === 0) {
+        console.log(`Cac so chia het cho ${b} la: ${i}`);
+      }
+    }
+  }
+}
 //-------------------Bai 5----------------------------
 // let random = Math.ceil(Math.random()*10);
 

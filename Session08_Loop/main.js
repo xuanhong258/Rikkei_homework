@@ -1,4 +1,3 @@
-
 //-------------------Bai 1----------------------------
 // let number = +prompt("Nhap vao so nguyen duong n:");
 
@@ -15,7 +14,7 @@
 // let result = 1;
 // if (!isNaN(number) && number > 0) {
 //     for (let i = 1; i <= number; i++) {
-//         result *= i; 
+//         result *= i;
 //     }
 //     console.log(`Giai thua cua ${number} la: ${result}`);
 // }else {
@@ -25,12 +24,12 @@
 //-------------------Bai 3----------------------------
 // let number = 100;
 // for(let i = 1; i <= number; i++) {
-//     if (i % 3 === 0) {
-//         console.log("Fizz");
+//     if (i % 3 === 0 && i % 5 === 0) {
+//         console.log("FizzBuzz");
 //     }else if (i % 5 === 0) {
 //         console.log("Buzz");
-//     }else if (i % 3 === 0 && i % 5 === 0){
-//         console.log("FizzBuzz");
+//     }else if (i % 3 === 0){
+//         console.log("Fizz");
 //     }else{
 //         console.log(i);
 //     }
@@ -79,15 +78,14 @@
 //             console.log(`${i} * ${j} = ${i * j}`);
 //         }
 //     }
-    
+
 // }
 
 //-------------------Bai 7----------------------------
-//Số hoàn hảo là một số nguyên dương 
+//Số hoàn hảo là một số nguyên dương
 //mà tổng các ước nguyên dương chính thức của nó bằng chính nó
 
 // let number = +prompt("Nhap vao so n:");
-
 
 // if (!isNaN(number) && number > 0) {
 //     let sum = 1;
@@ -109,26 +107,25 @@
 
 //-------------------Bai 8----------------------------
 
-//Số nguyên tố là tập hợp của những số tự nhiên 
+//Số nguyên tố là tập hợp của những số tự nhiên
 //chỉ chia hết cho số 1 và chính nó
 
 let number = +prompt("Nhap vao so n:");
 
-
 if (!isNaN(number) && number > 0) {
-    for(let i = 2; i < number; i++){
-        let isCheck = true;
-        for(let j = 2; j <= Math.sqrt(i); j++){
-            if(i % j === 0){
-                isCheck = false;
-            }
-        }
-        if (isCheck) {
-            console.log(i);
-        }
+  for (let i = 2; i < number; i++) {
+    let isCheck = true;
+    for (let j = 2; j <= Math.sqrt(i); j++) {
+      if (i % j === 0) {
+        isCheck = false;
+      }
     }
-}else{
-    console.log("Gia tri nhap vao chua chinh xac");
+    if (isCheck) {
+      console.log(i);
+    }
+  }
+} else {
+  console.log("Gia tri nhap vao chua chinh xac");
 }
 
 //-------------------Bai 9----------------------------
@@ -140,7 +137,6 @@ if (!isNaN(number) && number > 0) {
 //     let f1 = 1;
 //     let sum = 1;
 //     let fibonacci = `${f0} ${f1} `;
-
 
 //     for (let i = 1; i < number; i++){
 //         let fn = f0 + f1;
@@ -155,7 +151,6 @@ if (!isNaN(number) && number > 0) {
 //     console.log(fibonacci);
 
 // }
-
 
 //-------------------Bai 10----------------------------
 
@@ -182,8 +177,3 @@ if (!isNaN(number) && number > 0) {
 //     console.log(print);
 //     print = "";
 // }
-
-
-
-
-

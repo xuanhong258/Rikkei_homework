@@ -179,30 +179,28 @@ toLowerCaseFirstCharacter(stringInput);
 
 //--------------------Bai 10----------
 
-// function sumTotal(arr){
-//     let sum = 0;
-//     for(let i of arr){
-//         sum += i;
-//     }
-//     return sum;
-// }
+let numInteger = [1, -1, 3, 2, -3, 4, 5];
 
-// let numInteger = [1,2,3,4,5,6,7,8,9,10,11];
+let max_sum = numInteger[0];
+let cur_sum = numInteger[0];
+let start_idx = 0;
+let end_idx = 0;
+let cur_start_idx = 0;
+let tmp = [];
+for (let i = 1; i < numInteger.length; i++) {
+  if (cur_sum <= 0) {
+    cur_sum = numInteger[i];
+    cur_start_idx = i;
+  } else {
+    cur_sum += numInteger[i];
+  }
 
-// numInteger.sort((a,b) => a - b);
+  if (cur_sum > max_sum) {
+    max_sum = cur_sum;
+    console.log(max_sum);
+    start_idx = cur_start_idx;
+    end_idx = i;
+  }
+}
 
-// function printArrayChild(arr){
-//     let tmp = [];
-//     let sum1 = 0;
-//     let sum2 = 0;
-//     for(let i = 0; i < arr.length; i++){
-//         sum1 += arr[i];
-//         sum2 = sumTotal(arr) - sum1;
-//         if(sum2 < sum1){
-//             tmp.push(arr[i]);
-//         }
-//     }
-//     return tmp;
-// }
-
-// console.log(printArrayChild(numInteger));
+console.log(numInteger.splice(start_idx, end_idx - start_idx + 1));

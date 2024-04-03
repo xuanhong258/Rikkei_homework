@@ -170,10 +170,12 @@ toLowerCaseFirstCharacter(stringInput);
 //--------------------Bai 9 ----------
 
 //Callback function:
-//- Truyen doi so la mot ham
-//- Duoc su dung:
-//+ Xu ly dong bo trong Javascript
-//+ Xu ly event
+//- Là 1 function được truyền qua đối số khi gọi một hàm khác
+//- Được gọi lại(trong hàm nhận đối số)
+
+//- Được sử dụng:
+//+ Xử lý đồng bộ trong Javascript
+//+ Xử lý event
 
 //--------------------Bai 10----------
 

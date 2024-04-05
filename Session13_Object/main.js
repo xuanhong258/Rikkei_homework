@@ -1,3 +1,117 @@
+const phoneList = [
+    {
+      name: "Tony Stark",
+      phone: "0912323232",
+    },
+    {
+      name: "Captain America",
+      phone: "0971231233",
+    },
+  ];
+  
+  // Cho phép người dùng nhập vào 4 chữ cái C/R/U/D
+  // C -- Cho người dùng nhập vào tên của đối tượng contact
+  // muốn thêm mới vào danh bạ
+  //   -- Tiến hành tìm kiếm xem tên này đã tồn tại trong danh sách
+  // danh bạ hay chưa
+  //   -- Nếu chưa thì tiếp tục cho người dùng nhập vào số điện thoại
+  // của đối tượng contact đang muốn thêm mới
+  //   -- Tiến hành thêm mới đối tượng contact đó {name, phone} vào
+  // trong mảng phoneList
+  //   -- Tiến hành in ra màn hình console danh sách điện thoại phoneList
+  // đã được thêm mới 1 phần tử contact theo dạng
+  // 1. Tony - 09809485435
+  // 2. Captain America - 093402394
+  // ...
+  
+  // R -- Tiến hành in ra màn hình console danh sách điện thoại phoneList
+  // theo dạng
+  // 1. Tony - 09809485435
+  // 2. Captain America - 093402394
+  
+  // U -- Cho người dùng nhập vào tên của contact đang muốn chỉnh sửa số điện
+  // thoại.
+  //   -- Tiến hành tìm kiếm xem tên này đã tồn tại trong danh sách
+  // phoneList hay chưa
+  //   -- Nếu tìm thấy thì tiến hành cho người dùng nhập vào giá trị
+  // phone mới muốn cập nhật cho phần tử contact vừa tìm thấy
+  //   -- Tiến hành cập nhật
+  //   -- Tiến hành in ra màn hình console danh sách điện thoại phoneList
+  // đã được cập nhât phần tử contact vừa tìm thấy theo dạng
+  // 1. Tony - 09809485435
+  // 2. Captain America - 093402394
+  
+  // D -- Cho người dùng nhập vào tên của contact đang muốn xoá đi
+  //   -- Tiến hành tìm kiếm xem tên này đã tồn tại trong danh sách
+  // phoneList hay chưa
+  //   -- Nếu tìm thấy thì tiến hành xoá phần tử contact vừa tìm thấy đi khỏi
+  // mảng phoneList
+  //   -- Tiến hành in ra màn hình console danh sách điện thoại phoneList
+  // đã được xoá phần tử contact vừa tìm thấy theo dạng
+  // 1. Tony - 09809485435
+  // 2. Captain America - 093402394
+  
+  // E -- Thoát khỏi chương trình
+  // NOTE: Chương trình phải là một vòng lặp vĩnh cửu và sẽ được
+  // dừng lại cho đến khi người dùng nhập vào chữ cái E
+  
+  function printf(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      console.log(`${i + 1}. ${arr[i].name} - ${arr[i].phone}`);
+    }
+  }
+  
+  let isCheck = true;
+  
+  while (isCheck) {
+    let input = prompt("Please enter C/R/U/D");
+    if (input === "C") {
+      let addNewName = prompt(".....add new name");
+      for (let i = 0; i < phoneList.length; i++) {
+        if (phoneList[i].name !== addNewName) {
+          let addNewPhone = prompt(".....add new phone");
+          phoneList.push({
+            name: addNewName,
+            phone: addNewPhone,
+          });
+          break;
+        } else {
+          addNewName = prompt(".....add again new name");
+        }
+      }
+      printf(phoneList);
+    } else if (input === "R") {
+      printf(phoneList);
+    } else if (input === "U") {
+      let nameUpdate = prompt(".....Enter name need to update");
+      for (let i = 0; i < phoneList.length; i++) {
+          if (phoneList[i].name === nameUpdate) {
+            let updateNewPhone = prompt(".....update new phone");
+            phoneList[i].phone = updateNewPhone;
+            printf(phoneList);
+            break;
+        } else {
+          nameUpdate = prompt(".....Enter name again");
+        }
+      }
+    } else if (input === "D") {
+      let nameDelete = prompt(".....Enter name need to delete");
+      for (let i = 0; i < phoneList.length; i++) {
+        if (phoneList[i].name === nameDelete) {
+          phoneList.splice(i, 1);
+          printf(phoneList);
+          break;
+        } else {
+          nameDelete = prompt(".....Enter name again");
+        }
+      }
+    } else if (input === "E") {
+      isCheck = false;
+    } else {
+      input = prompt("Please enter C/R/U/D");
+    }
+  }
+
 //---------------------------Bai 1---------------
 
 // const information = {

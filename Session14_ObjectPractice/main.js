@@ -349,14 +349,12 @@
 // };
 // // Hàm hiển thị tổng quan về doanh nghiệp: số lượng nhân viên + giá trị hóa đơn
 // function businessOverview(obj) {
-//   let sum = 0;
 //   console.log(
 //     `Số lượng nhân viên của doanh nghiệp là : ${obj["employeeList"].length}`
 //   );
 //   for (let value of obj["billList"]) {
-//     sum += value["surplus"];
+//     console.log(`Giá trị hóa đơn ${value["billName"]} là : ${value["surplus"]}`);
 //   }
-//   console.log(`Giá trị hóa đơn của doanh nghiệp là : ${sum}`);
 // }
 
 // businessOverview(business);
@@ -380,76 +378,131 @@
 
 // //Hàm tạo báo cáo thống kê : số lượng nhân viên theo phòng ban, số lượng phòng ban và tổng hóa đơn
 
-// function statisticalReport(obj, departmentName) {
+// function statisticalReport(obj) {
+//   let tmp = [];
 //   let cnt = 0;
+//   let sum = 0;
 //   for (let value of obj["employeeList"]) {
-//     if (value["department"] === departmentName) {
-//       cnt++;
-//     }
+//     tmp.push(value["department"]);
 //   }
-//   console.log(`Số lượng nhân viên phòng ban ${departmentName} là: ${cnt}`);
-// }
+//   let newArray = [...new Set(tmp)];
+//   console.log(`Số lượng phòng ban là: ${newArray.length}`);
+//   for(let value of newArray){
+//     for(let subValue of obj["employeeList"]){
+//       if(value === subValue["department"]){
+//         cnt++;
+//       }
+//     }
+//     console.log(`Số lượng nhân viên phòng ban ${value} là: ${cnt}`);
+//     cnt = 0;
+//   }
 
-// for (let key in business.employeeList) {
-//   statisticalReport(business, business.employeeList[key]["department"]);
+//   for (let value of obj["billList"]) {
+//     sum += value["surplus"];
+//   }
+//   console.log(`Giá trị hóa đơn của doanh nghiệp là : ${sum}`);
 // }
-
+// statisticalReport(business)
 //------------------------Bai 10--------------------
 
-let shop = {
-  products: [
-    {
-      id: 1,
-      name: "Bim bim",
-      price: 5000,
-      expiry: "25/08/1998",
-    },
-    {
-      id: 2,
-      name: "Cocacola",
-      price: 8000,
-      expiry: "02/08/2010",
-    },
-  ],
-  employees: [
-    {
-      id: 1,
-      name: "Hồng",
-      age: 18,
-    },
-    {
-      id: 2,
-      name: "Xuân",
-      age: 28,
-    },
-  ],
-  bills: [
-    {
-      productInfo: "Đồ ăn nhanh",
-      quanity: 10,
-      price: 50000,
-    },
-    {
-      productInfo: "Nước có gas",
-      quanity: 15,
-      price: 120000,
-    },
-  ],
-};
-
-//Hàm hiển thị tổng quan
-function shopOverview(obj) {
-  console.log(`Số lượng sản phẩm là: ${obj["products"].length}`);
-  console.log(`Số lượng nhân viên là: ${obj["employees"].length}`);
-  let sum = 0;
-  for (let value of obj["bills"]) {
-    sum += value["price"];
+// let productList = [
+//   {
+//     id: 1,
+//     name: "Bim bim",
+//     price: 5000,
+//     expiry: "25/08/2024",
+//   },
+//   {
+//     id: 2,
+//     name: "Cocacola",
+//     price: 8000,
+//     expiry: "11/04/2024",
+//   },
+// ]
+//Hàm tạo sản phẩm:
+let productList = [];
+function createProduct(){
+  let product = {
+    id: prompt("Nhập vào id sản phẩm"),
+    name: prompt("Nhập vào tên sản phẩm"),
+    price: +prompt("Nhập vào giá sản phẩm"),
   }
-  console.log(`Doanh thu cửa hàng là: ${sum}`);
+
+  productList.push(product);
+}
+// Hàm thêm thuộc tính hạn sử dụng cho sản phẩm
+function addExpiry(){
+  for(value of productList){
+    let dateExpiry = prompt("Nhập vào hạn sử dụng sản phẩm");//25/08/1998
+    value.expiry = dateExpiry;
+  }
 }
 
-shopOverview(shop);
+//Hàm kiểm tra sản phẩm sắp hết hạn sử dụng
+let d = new Date()
+let dayNow = d.getDate();
+let monthNow = d.getMonth() + 1;
+let yearNow = d.getFullYear();
 
-//Kiểm tra sản phẩm sắp hết hạn sử dụng
+function checkExpiry() {
+  let tmp = [];
+  for(let value of productList){
+    let arrExpiry = value["expiry"].split("/");
+    let dayProduct =  Number.parseInt(arrExpiry[0])
+    let monthProduct = Number.parseInt(arrExpiry[1]);
+    let yearProduct = Number.parseInt(arrExpiry[2]);
+    if(dayProduct - dayNow < 8 && dayProduct - dayNow > 0 && monthNow === monthProduct && yearNow === yearProduct){
+      tmp.push(value);
+    }else if(dayNow === 30 || dayNow === 31 && dayProduct < 7 && monthProduct - monthNow === 1){
+      tmp.push(value)
+    }else if(dayNow === 31 && monthNow === 12 && dayProduct < 7 && monthProduct === 1 && yearProduct - yearNow === 1){
+      tmp.push(value)
+    }
+  }
+  console.log("Những sản phẩm sắp hết hạn sử dụng là: ");
+  if(tmp.length === 0){
+    console.log("Không có sản phẩm nào sắp hết hạn");
+  }
+  for(let value of tmp){
+      console.log(value);
+  }
+}
 
-function checkExpiry(obj, dateExpiry) {}
+checkExpiry();
+// Hàm tạo nhân viên và thêm vào danh sách nhân viên của cửa hàng
+
+let employeeList = [];
+function createProduct(){
+  let employee = {
+    id: prompt("Nhập vào id của nhân viên"),
+    name: prompt("Nhập vào tên của nhân viên"),
+    age: +prompt("Nhập vào tuổi của nhân viên"),
+  }
+
+  employeeList.push(employee);
+}
+
+// Hàm tạo hóa đơn và thêm vào danh sách hóa đơn của cửa hàng
+let invoiceList = [];
+function createProduct(){
+  let invoice = {
+    productInfo: prompt("Nhập vào thông tin sản phẩm"),
+    quantity: +prompt("Nhập vào số lượng sản phẩm"),
+    price: +prompt("Nhập vào giá trị hóa đơn"),
+  }
+
+  invoiceList.push(invoice);
+}
+
+// Hàm hiển thị tổng quan về cửa hàng
+
+function shopOverview(){
+  console.log(`Số lượng sản phẩm của cửa hàng là: ${productList.length}`);
+  console.log(`Số lượng nhân viên của cửa hàng là: ${employeeList.length}`);
+  let sum = 0;
+  for(let value of invoiceList){
+    sum += value["price"];
+  }
+  console.log(` Tổng doanh thu của cửa hàng là: ${sum}`);
+}
+

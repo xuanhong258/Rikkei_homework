@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 09</title>
+    <style>
+        .li-btn{
+            display: flex;
+            margin-bottom: 6px;
+        }
+        .li-btn li{
+            margin-right: 6px;
+        }
+
+        input{
+            border-radius: 10px;
+            padding: 4px;
+            margin-left: 28px;
+        }
+
+        #edit-item{
+            border-radius: 6px;
+            background-color: aquamarine;
+            cursor: pointer;
+            padding: 4px 8px; 
+
+        }
+        .btn-edit{
+            border: none;
+            background-color: aquamarine;
+            cursor: pointer;
+        }
+    
+    </style>
+</head>
+<body>
+    <input type="text">
+    <button id="edit-item">Edit item</button>
+    <ul>
+        <div class="li-btn">
+            <li>Nguyễn Văn A</li>
+        <button class="btn-edit">Edit</button>
+        </div>
+        <div class="li-btn">
+            <li>Vũ Thị B</li>
+            <button class="btn-edit">Edit</button>
+        </div>
+        <div class="li-btn">
+            <li>Nguyễn Minh C</li>
+            <button class="btn-edit">Edit</button>
+        </div>
+    </ul>
+
+    <script src="./main.js"></script>
+</body>
+</html>

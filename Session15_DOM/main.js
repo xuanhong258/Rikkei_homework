@@ -54,29 +54,29 @@
 //   ul.innerHTML = tmp.join("");
 // };
 //--------------------Bai 07--------------------------------
-// let tableElement = document.querySelector("table");
+let tableElement = document.querySelector("table");
 
-// let btn = document.querySelector("button");
-// let tmp = [
-//   `<tr>
-//         <td>Cell 1 row 1</td>
-//         <td>Cell 2 row 1</td>
-//         <td>Cell 3 row 1</td>
-//     </tr>`,
-// ];
-// let i = 1;
-// let j = 2;
-// btn.onclick = () => {
-//   tmp.push(`
-//     <tr>
-//         <td>Cell ${i} row ${j}</td>
-//         <td>Cell ${i + 1} row ${j}</td>
-//         <td>Cell ${i + 2} row ${j}</td>
-//     </tr>
-//     `);
-//   j++;
-//   tableElement.innerHTML = tmp.join("");
-// };
+let btn = document.querySelector("button");
+let tmp = [
+  `<tr>
+        <td>Cell 1 row 1</td>
+        <td>Cell 2 row 1</td>
+        <td>Cell 3 row 1</td>
+    </tr>`,
+];
+let i = 1;
+let j = 2;
+btn.onclick = () => {
+  tmp.push(`
+    <tr>
+        <td>Cell ${i} row ${j}</td>
+        <td>Cell ${i + 1} row ${j}</td>
+        <td>Cell ${i + 2} row ${j}</td>
+    </tr>
+    `);
+  j++;
+  tableElement.innerHTML = tmp.join("");
+};
 
 //--------------------Bai 08--------------------------------
 // let btnList = document.querySelectorAll("tr td button");
@@ -120,8 +120,8 @@
 //--------------------innerHTML----------------------------
 // /Lấy ra toàn bộ nội dung là HTML có ở bên trong 1 phân tử HTML nào đó
 
-let div = document.querySelector("div");
+// let div = document.querySelector("div");
 
-console.log(div.innerText);
-console.log(div.textContent);
-console.log(div.innerHTML);
+// console.log(div.innerText);
+// console.log(div.textContent);
+// console.log(div.innerHTML);

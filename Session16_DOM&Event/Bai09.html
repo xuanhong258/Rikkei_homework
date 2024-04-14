@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 09</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: rgb(236, 207, 207);
+            height: 500px;
+            width: 500px;
+            border-radius: 4px;
+        }
+        .show-image-list img {
+            width: 50px;
+            height: 50px;
+            margin: 0 2px;
+        }
+        .show-image{
+            height: 100%;
+            width: 100%;
+        }
+        .show-image-zoom{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            height: 400px;
+            padding: 10px;
+            width: 100%;
+        }
+        .hidden{
+            display: block;
+            border-radius: 2px;
+            height: 100%;
+            width: 405px;
+        }
+        .show-image-list{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px;
+        }
+        .image-list{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .image-list img{
+            opacity: 0.5;
+        }
+        .icon-button{
+            font-size: 60px;
+            color: rgb(116, 108, 97);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="show-image">
+            <div class="show-image-zoom ">
+                <img src="./1-cat.jpg" alt="" class="hidden">
+                <!-- <img src="./1.jpg" alt=""> -->
+            </div>
+            <div class="show-image-list">
+                <div class="icon-button">
+                    <i class="fa-solid fa-chevron-left icon-left"></i>
+                </div>
+                <div class="image-list">
+                    <span>
+                        <img src="./1-cat.jpg" alt="" >
+                    </span>
+                    <span>
+                        <img src="./2-cat.jpg" alt="">
+                    </span>
+                    <span>
+                    <img src="./3-cat.jpg" alt="" >
+                    </span>
+                    <span>
+                        <img src="./4-cat.jpg" alt="">
+                    </span>
+                    <span>
+                    <img src="./5-cat.jpg" alt="">
+                    </span>
+                    <span>
+                    <img src="./6-cat.jpg" alt="">
+                    </span>
+                    <span>
+                    <img src="./7-cat.jpg" alt="">
+                    </span>
+                </div>
+                <div class="icon-button">
+                    <i class="fa-solid fa-chevron-right icon-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>

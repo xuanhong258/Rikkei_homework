@@ -11,7 +11,7 @@ body{
     background-color: #ddd8d8;
 }
 .wrapper {
-    height: 300px;
+    height: 400px;
     width: 400px;
     padding: 10px;
     background-color: #fff;
@@ -34,9 +34,31 @@ body{
     position: relative;
     transform-style: preserve-3d;
     perspective: 800px;
-    height: calc(100% / 3 - 10px);
+    height: calc(100% / 4 - 10px);
     width: calc(100% / 4 - 10px);
 
+}
+
+.card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
 }
 
 .cards .card .view {

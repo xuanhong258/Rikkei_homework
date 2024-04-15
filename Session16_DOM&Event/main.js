@@ -365,64 +365,148 @@
 
 
 //--------------Bai 09--------------
-let iconLeft = document.querySelector(".icon-left");
-let iconRight = document.querySelector(".icon-button:last-child");
+// let iconLeft = document.querySelector(".icon-left");
+// let iconRight = document.querySelector(".icon-right");
 
-let imgList = document.querySelectorAll(".image-list span img");
-let showImage = document.querySelector(".show-image-zoom img");
+// let imgList = document.querySelectorAll(".image-list span img");
+// let showImage = document.querySelector(".show-image-zoom img");
 
-let tmpSrc = [];
+// let tmpSrc = [];
 
-for (let key of imgList) {
-  tmpSrc.push(key.getAttribute("src"));
-}
-let i = 0;
-imgList[0].style.opacity = 1;
-iconRight.onclick = function moveRight() {
-  if (i < tmpSrc.length) {
-    showImage.setAttribute("src", `${tmpSrc[i + 1]}`);
-    imgList[i + 1].style.opacity = 1;
-    imgList[i].style.opacity = 0.5;
-    i++;
-  } else {
-    i = 0;
-    imgList[tmpSrc.length - 1].style.opacity = 0.5;
-  }
-};
+// for (let key of imgList) {
+//   tmpSrc.push(key.getAttribute("src"));
+// }
 
-let j = i;
-iconLeft.onclick = function moveLeft() {
-  if (j > 0) {
-    showImage.setAttribute("src", `${tmpSrc[j - 1]}`);
-    imgList[j].style.opacity = 0.5;
-    imgList[j - 1].style.opacity = 1;
-    j--;
-  } else {
-    j = tmpSrc.length - 1;
-    showImage.setAttribute("src", `${tmpSrc[tmpSrc.length - 1]}`);
-  }
-  console.log(i);
-};
+// let i = 0;
+// imgList[0].style.opacity = 1;
+
+// function moveRight() {
+//   if (i < tmpSrc.length - 1) {
+//     showImage.setAttribute("src", `${tmpSrc[i + 1]}`);
+//     imgList[i + 1].style.opacity = 1;
+//     imgList[i].style.opacity = 0.5;
+//     i++;
+//   } else {
+//     i = 0;
+//     showImage.setAttribute("src", `${tmpSrc[i]}`);
+//     imgList[tmpSrc.length - 1].style.opacity = 0.5;
+//     imgList[0].style.opacity = 1;
+//   }
+// };
+
+// let j = 0;
+// function moveLeft() {
+//   if (j > 0) {
+//     showImage.setAttribute("src", `${tmpSrc[j - 1]}`);
+//     imgList[j].style.opacity = 0.5;
+//     imgList[j - 1].style.opacity = 1;
+//     j--;
+//   } else {
+//     j = tmpSrc.length - 1;
+//     showImage.setAttribute("src", `${tmpSrc[tmpSrc.length - 1]}`);
+//     imgList[0].style.opacity = 0.5;
+//     imgList[tmpSrc.length - 1].style.opacity = 1;
+//   }
+// };
+
+// iconRight.onclick = () => {
+//   moveRight();
+//   j = i;
+//   iconLeft.onclick = () => {
+//     moveLeft();
+//     i = j;
+//   }
+// }
+
+// setInterval(function(){
+//   moveRight()
+// },1000)
 //---------------------Bai 10-----------------------------
+let images = document.querySelectorAll(".view .back-view");
 
-const cards = document.querySelectorAll(".card")
 
+const cards = document.querySelectorAll(".card");
+let matchCard = 0;
 let cardOne, cardTwo;
+let disableDeck = false;
 
 function flipCard(e){
-    let clickedCard = e.target;
-    if(clickedCard !== cardOne){
-        clickedCard.classList.add("flip");
-        if(!cardOne){
-            return cardOne = clickedCard;
-        }
-        cardTwo = clickedCard;
-    }
-    let cardOneImg = cardOne.querySelector("img");
-    let cardTwoImg = cardOne.querySelector("img");
-
-    matchCards(cardOneImg,cardTwoImg);
+  let clickedCard = e.target;
+  if(clickedCard !== cardOne && !disableDeck){
+      clickedCard.classList.add("flip");
+      if(!cardOne){
+        return cardOne = clickedCard;
+      }
+      cardTwo = clickedCard;
+      disableDeck = true;
+  
+      let cardOneImg = cardOne.querySelector("img");
+      let cardTwoImg = cardTwo.querySelector("img");
+      matchCards(cardOneImg,cardTwoImg);
+  }
 }
 
+cards.forEach(card => {
+  card.addEventListener("click",flipCard);
+})
+
 function matchCards(img1,img2){
-        console.log(img1, img2);
+  if(img1.getAttribute("src") === img2.getAttribute("src")){
+    cardOne.removeEventListener("click", flipCard);
+    cardTwo.removeEventListener("click", flipCard);
+    cardOne = cardTwo = "";
+    disableDeck = false;
+    matchCard++;
+  }else{
+    setTimeout(() =>{
+      cardOne.classList.add("shake");
+      cardTwo.classList.add("shake");
+    },400)
+  
+    setTimeout(() => {
+      cardOne.classList.remove("shake","flip");
+      cardTwo.classList.remove("shake","flip");
+      cardOne = cardTwo = "";
+      disableDeck = false;
+    },1200)
+  }
+  if(matchCard === 8){
+    setTimeout(() => {
+      alert("Chúc mừng bạn!!!!!");
+      shuffleCard();
+    },400)
+  }
+}
+
+function shuffleCard() {
+  matchCard = 0;
+  cardOne = cardTwo = "";
+  let arr = [1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4];
+  arr.sort(() => Math.random() > 0.5 ? 1 : -1);
+// let  tmp = []
+// while(tmp.length < arr.length){
+//   let random = Math.floor(Math.random()*arr.length);
+//   if(tmp.indexOf(random) === -1){
+//     tmp.push(random);
+//   }
+// }
+
+// let newArr = []
+// for(let i = 0; i < tmp.length;i++){
+//   newArr.push(arr[tmp[i]]);
+// }
+  cards.forEach((card,index) => {
+    card.classList.remove("flip");
+    let imgTag = card.querySelector("img");
+    imgTag.setAttribute("src",`./${arr[index]}.jpeg`);
+    card.addEventListener("click",flipCard);
+  })
+}
+
+
+
+
+
+// arr.sort(() => Math.random() > 0.5 ? 1 : -1);
+
+// console.log(arr);

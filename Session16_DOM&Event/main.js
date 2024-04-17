@@ -283,6 +283,7 @@ if (emailLeft.value === "") {
 //Check phone
 
 let regexPhone = /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/;
+let regexPhone = /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/;
 
 if (!regexPhone.test(phoneLeft.value)) {
   alert("Số điện thoại nhập chưa đúng định dạng");
@@ -445,6 +446,7 @@ inputAgain.onclick = () => {
 // },1000)
 //---------------------Bai 10-----------------------------
 // let images = document.querySelectorAll(".view .back-view");
+// let images = document.querySelectorAll(".view .back-view");
 
 // const cards = document.querySelectorAll(".card");
 // let matchCard = 0;
@@ -467,6 +469,9 @@ inputAgain.onclick = () => {
 //   }
 // }
 
+// cards.forEach(card => {
+//   card.addEventListener("click",flipCard);
+// })
 // cards.forEach(card => {
 //   card.addEventListener("click",flipCard);
 // })

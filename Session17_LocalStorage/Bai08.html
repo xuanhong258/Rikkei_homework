@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 08</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container{
+            min-width:500px;
+        }
+        header{
+            background-color: rgb(216, 70, 51);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+        }
+        .heading{
+            margin: 8px 0;
+            font-size: 30px;
+            color: aliceblue;
+            font-size: 600;
+        }
+        .searching input{
+            padding: 6px 0 6px 4px;
+            width: 100%;
+            border: none;
+            font-size: 16px;
+        }
+        .searching{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 0 20px 20px 20px;
+        }
+        .searching button{
+            padding: 4px 50px;
+            background-color: rgb(203, 203, 196);
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+        .searching button:hover{
+            opacity: 1;
+        }
+        .content{
+            list-style: none;
+            padding: 0 0 0 20px;
+            background-color: antiquewhite;
+        }
+        .list{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+        .list-item{
+            padding: 4px 0;
+            font-size: 16px;
+        }
+        .icon{
+            padding: 6px;
+            cursor: pointer;
+            opacity: 0.6;
+
+        }
+        .icon:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="heading">My To Do List</div>
+            <div class="searching">
+                <input type="text" placeholder="Title...">
+                <button>Add</button>
+            </div>
+        </header>
+        <ul class="content">
+            <!-- <div class="list">
+                <li class="list-item">Hit the gym</li>
+                <span class="icon"><i class="fa-solid fa-xmark"></i></span>
+            </div> -->
+        </ul>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>

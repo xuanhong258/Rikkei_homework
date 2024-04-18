@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 09</title>
+    <link rel="stylesheet" href="./Bai09.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="add-item">
+            <input type="text" class="item-name m-r-10" placeholder="Tên sản phẩm">
+            <input type="text" class="item-price" placeholder="Giá sản phẩm">
+            <button class="add-new-item">Thêm mới sản phẩm</button>
+            <button class="edit-item display-none">Sửa thông tin sản phẩm</button>
+        </div>
+        <div class="searching-item-by-name">
+            <div class="searching-input">
+                <input type="text" placeholder="Tìm sản phẩm theo tên">
+            </div>
+            <div class="searching-heading">
+                <h2 class="display-heading">Danh sách sản phẩm</h2>
+            </div>
+            <div class="searching-table">
+                <div class="table-title">
+                    <span>STT</span>
+                    <span>Tên sản phẩm</span>
+                    <span>Giá</span>
+                    <span>Tác vụ</span>
+                </div>
+                <ul class="display-item-list">
+                    <!-- <li id="${id}" class="item">
+                            <span class="id">${id}</span>
+                            <span class="name">${nameItem}</span>
+                            <span class="price">$${priceItem}</span>
+                            <span>
+                                <button class="edit-btn">Sửa</button>
+                                <button class="delete-btn">Xóa</button>
+                            </span>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>

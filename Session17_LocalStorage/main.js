@@ -9,7 +9,6 @@
 
 // localStorage.personInfo = JSON.stringify(personInfo);
 
-
 // let getPersonInfo = JSON.parse(localStorage.personInfo);
 
 // for(let key in getPersonInfo){
@@ -69,7 +68,7 @@
 //             ul.innerHTML += li;
 //         }
 //     }
-    
+
 // }
 // render();
 
@@ -104,17 +103,13 @@
 //----------------Bai 05-----------------------------
 // localStorage.users = JSON.stringify([]);
 
-
-
 // let userName = document.querySelector(".username");
 
 // let password = document.querySelector(".password");
 
 // let email = document.querySelector(".email");
 
-
 // let submitBtn = document.querySelector(".submit");
-
 
 // submitBtn.onclick = () => {
 //     let users = JSON.parse(localStorage.users);
@@ -163,7 +158,7 @@
 
 //----------------Bai 07-----------------------------
 
-// // localStorage.userList = JSON.stringify([]);
+// localStorage.userList = JSON.stringify([]);
 
 // let input = document.querySelector("input");
 
@@ -172,7 +167,6 @@
 // let removeBtn = document.querySelector(".remove-btn");
 
 // let ul = document.querySelector("ul");
-
 
 // addBtn.onclick = () => {
 //     ul.innerHTML = "";
@@ -199,54 +193,144 @@
 
 // localStorage.toDoList = JSON.stringify([]);
 
-let input = document.querySelector(".searching input");
+// let input = document.querySelector(".searching input");
 
-let addBtn = document.querySelector("button");
+// let addBtn = document.querySelector("button");
 
-let ul = document.querySelector("ul");
+// let ul = document.querySelector("ul");
+
+// function render() {
+//   ul.innerHTML = "";
+//   let toDoList = JSON.parse(localStorage.toDoList);
+//   for (let value of toDoList) {
+//     ul.innerHTML += value.content;
+//   }
+// }
+
+// render();
+// // Add toDoList
+// addBtn.onclick = () => {
+//   let toDoList = JSON.parse(localStorage.toDoList);
+//   if (input.value !== "") {
+//     let item = `<div id="${toDoList.length + 1}" class="list">
+//                 <li class="list-item">${input.value}</li>
+//                 <span class="icon"><i class="fa-solid fa-xmark"></i></span>
+//             </div>`;
+//     toDoList.push({
+//       id: toDoList.length > 0 ? toDoList[toDoList.length - 1].id + 1 : 1,
+//       content: item,
+//     });
+//     input.value = "";
+//     localStorage.toDoList = JSON.stringify(toDoList);
+//     render();
+//   }
+// };
+// // Remove toDoList
+// if (localStorage.toDoList !== "") {
+//   ul.onclick = (e) => {
+//     let toDoList = JSON.parse(localStorage.toDoList);
+//     if (e.target.classList.contains("fa-solid")) {
+//       let divElement = e.target.parentElement.parentElement;
+
+//       let index = toDoList.findIndex((el) => {
+//         return el.id === +divElement.id;
+//       });
+//       toDoList.splice(index, 1);
+//       localStorage.toDoList = JSON.stringify(toDoList);
+//       render();
+//     }
+//   };
+// }
+
+//----------------Bai 09-----------------------------
+
+// localStorage.productItem = JSON.stringify([]);
+
+let inputProductName = document.querySelector(".item-name");
+
+let inputProductPrice = document.querySelector(".item-price");
+
+let addNewItemBtn = document.querySelector(".add-new-item");
+
+let editItemBtn = document.querySelector(".edit-item");
+
+let ul = document.querySelector(".display-item-list");
 
 function render() {
-    ul.innerHTML = ""
-    let toDoList = JSON.parse(localStorage.toDoList);
-    for(let value of toDoList){
-        ul.innerHTML += value;
-    }
+  ul.innerHTML = "";
+  let productItem = JSON.parse(localStorage.productItem);
+  for (let value of productItem) {
+    ul.innerHTML += value.item;
+  }
 }
 
 render();
 
-addBtn.onclick = () => {
-    let toDoList = JSON.parse(localStorage.toDoList);
-    if(input.value !== ""){
-        ul.innerHTML = "";
-        let item = 
-            `<div id="${toDoList.length + 1}" class="list">
-                <li class="list-item">${input.value}</li>
-                <span class="icon"><i class="fa-solid fa-xmark"></i></span>
-            </div>`
-        toDoList.push(item);
-        input.value = "";
-        localStorage.toDoList = JSON.stringify(toDoList);
-        toDoList = JSON.parse(localStorage.toDoList);
-        for(let value of toDoList){
-            ul.innerHTML += value;
+addNewItemBtn.onclick = () => {
+  let nameItem = inputProductName.value;
+  let priceItem = inputProductPrice.value;
+  let productItem = JSON.parse(localStorage.productItem);
+  let id =
+    productItem.length > 0 ? productItem[productItem.length - 1].id + 1 : 1;
+
+  let li = `<li id="${id}" class="item">
+                <span class="id">${id}</span>
+                <span class="name">${nameItem}</span>
+                <span class="price">$${priceItem}</span>
+                <span>
+                    <button class="edit-btn">Sửa</button>
+                    <button class="delete-btn">Xóa</button>
+                </span>
+            </li>`;
+  productItem.push({
+    id: id,
+    item: li,
+  });
+  localStorage.productItem = JSON.stringify(productItem);
+  inputProductName.value = inputProductPrice.value = "";
+  ul.innerHTML += li;
+  render();
+};
+
+let editBtns = document.querySelectorAll(".edit-btn");
+let deleteBtns = document.querySelectorAll(".delete-btn");
+
+ul.onclick = (e) => {
+  let productItem = JSON.parse(localStorage.productItem);
+  if (e.target.classList.contains("edit-btn")) {
+    addNewItemBtn.classList.add("display-none");
+    editItemBtn.classList.remove("display-none");
+
+    let liElement = e.target.parentElement.parentElement;
+
+    let nameInColumn = liElement.querySelector(".name");
+    let priceInColumn = liElement.querySelector(".price");
+
+    inputProductName.value = nameInColumn.innerText;
+    inputProductPrice.value = priceInColumn.innerText.slice(1);
+
+    editItemBtn.onclick = () => {
+      let itemNameUpdate = inputProductName.value;
+      let itemPriceUpdate = inputProductPrice.value;
+      let orderListInColumn = liElement.querySelector(".id").innerText;
+      productItem.forEach((element, index) => {
+        if (element.id === +orderListInColumn) {
+          element.item = `<li id="${orderListInColumn}" class="item">
+                <span class="id">${orderListInColumn}</span>
+                <span class="name">${itemNameUpdate}</span>
+                <span class="price">$${itemPriceUpdate}</span>
+                <span>
+                    <button class="edit-btn">Sửa</button>
+                    <button class="delete-btn">Xóa</button>
+                </span>
+            </li>`;
+          localStorage.productItem = JSON.stringify(productItem);
+          inputProductName.value = inputProductPrice.value = "";
+          render();
+          addNewItemBtn.classList.remove("display-none");
+          editItemBtn.classList.add("display-none");
         }
-    }
-
-}
-
-if(localStorage.toDoList !== ""){
-    let iconList = ul.querySelectorAll(".list span");
-    let toDoList = JSON.parse(localStorage.toDoList);
-        
-    for(let value of iconList){
-        value.onclick = () => {
-            let divElement = value.parentNode;
-
-            let position = +divElement.id - 1;
-            toDoList.splice(position,1);
-            localStorage.toDoList = JSON.stringify(toDoList);
-            render();
-        }
-    }
-}
+      });
+    };
+  }
+};

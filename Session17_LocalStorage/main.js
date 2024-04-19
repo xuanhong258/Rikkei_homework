@@ -254,6 +254,7 @@ let addNewItemBtn = document.querySelector(".add-new-item");
 
 let editItemBtn = document.querySelector(".edit-item");
 
+
 let ul = document.querySelector(".display-item-list");
 
 function render() {
@@ -265,7 +266,7 @@ function render() {
 }
 
 render();
-
+//Add Item
 addNewItemBtn.onclick = () => {
   let nameItem = inputProductName.value;
   let priceItem = inputProductPrice.value;
@@ -292,15 +293,15 @@ addNewItemBtn.onclick = () => {
   render();
 };
 
-let editBtns = document.querySelectorAll(".edit-btn");
-let deleteBtns = document.querySelectorAll(".delete-btn");
+
+
 
 ul.onclick = (e) => {
   let productItem = JSON.parse(localStorage.productItem);
   if (e.target.classList.contains("edit-btn")) {
     addNewItemBtn.classList.add("display-none");
     editItemBtn.classList.remove("display-none");
-
+    
     let liElement = e.target.parentElement.parentElement;
 
     let nameInColumn = liElement.querySelector(".name");
@@ -308,7 +309,7 @@ ul.onclick = (e) => {
 
     inputProductName.value = nameInColumn.innerText;
     inputProductPrice.value = priceInColumn.innerText.slice(1);
-
+    //Update Item
     editItemBtn.onclick = () => {
       let itemNameUpdate = inputProductName.value;
       let itemPriceUpdate = inputProductPrice.value;
@@ -332,5 +333,37 @@ ul.onclick = (e) => {
         }
       });
     };
+    
+  }
+  // Xóa Item
+  if(e.target.classList.contains("delete-btn")){
+    let liElement = e.target.parentElement.parentElement;
+    productItem.forEach((element, index) => {
+      if(element.id === +liElement.id){
+        productItem.splice(index,1);
+      }
+    });
+    productItem.forEach((element, index) => {
+      let nameInColumn = liElement.querySelector(".name");
+      let priceInColumn = liElement.querySelector(".price");
+      let orderListInColumn = liElement.querySelector(".id");
+
+      element.id = index + 1;
+      element.item = 
+              `<li id="${index + 1}" class="item">
+                  <span class="id">${index + 1}</span>
+                  <span class="name">${nameInColumn.innerText}</span>
+                  <span class="price">${priceInColumn.innerText}</span>
+                  <span>
+                      <button class="edit-btn">Sửa</button>
+                      <button class="delete-btn">Xóa</button>
+                  </span>
+              </li>`;
+      localStorage.productItem = JSON.stringify(productItem);
+      render();
+    })
   }
 };
+
+
+

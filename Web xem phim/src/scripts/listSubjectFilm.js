@@ -1,63 +1,103 @@
 function openNav() {
-    document.getElementById("mySidenav").style.display = "block";
+  document.getElementById("mySidenav").style.display = "block";
 
-    document.querySelector("span i:nth-child(2)").style.display = "block";
+  document.querySelector("span i:nth-child(2)").style.display = "block";
 
-    document.querySelector("span i:first-child").style.display = "none";
+  document.querySelector("span i:first-child").style.display = "none";
 }
 
-function closeNav(){
-    document.getElementById("mySidenav").style.display = "none";
+function closeNav() {
+  document.getElementById("mySidenav").style.display = "none";
 
-    document.querySelector("span i:nth-child(2)").style.display = "none";
+  document.querySelector("span i:nth-child(2)").style.display = "none";
 
-    document.querySelector("span i:first-child").style.display = "block";
+  document.querySelector("span i:first-child").style.display = "block";
 }
 
+let listFilm = JSON.parse(localStorage.listFilm);
 
-const listSubject = {
-        seriesFilm : [
-            {
-                image:'../assets/images/Phim bộ/ookami-to-koushinryou-merchant-meets-the-wise-wolf.jpg',
-                name: "OOKAMI TO KOUSHINRYOU: MERCHANT MEETS THE WISE WOLF",
-            },
-            {
-                image:'../assets/images/Phim bộ/kho-tim.jpg',
-                name:"KHÓ TÌM",
-            },
-            {
-                image:'../assets/images/Phim bộ/mat-na-chan-tinh.jpg',
-                name:"MẶT NẠ CHÂN TÌNH",
-            },
-            {
-                image: '../assets/images/Phim bộ/tich-hoa-chi.jpg',
-                name: "TÍCH HOA CHỈ",
-            },
-            {
-                image: '../assets/images/Phim bộ/thua-hoan-ky.jpg',
-                name: "THỪA HOAN KÝ",
-            }
-        ],
-       
-}
+let actionListFilm = document.querySelector(".action");
 
-let tr = document.querySelector("table tbody tr");
+let singleMovie = document.querySelector(".singleMovie");
 
+let comedyFilm = document.querySelector(".comedyFilm");
 
-function render(){
-    tr.innerHTML = "";
+let cartoonFilm = document.querySelector(".cartoonFilm");
 
-    for(let key in listSubject){
-        listSubject[key].forEach(element => {
-            let row = `
-                <td class="col-2">${element.name}</td>
-            `
-            tr.innerHTML += row;
-        });
+function render() {
+  actionListFilm.innerHTML = "";
+  singleMovie.innerHTML = "";
+  comedyFilm.innerHTML = "";
+  cartoonFilm.innerHTML = "";
+  listFilm.forEach((el, index) => {
+    if (el.filmSubject === "Phim hành động") {
+      actionListFilm.innerHTML += `
+        <td class="col-1">
+            <img style="width:160px;height:240px;" src="${el.image}" alt="">
+            </br>
+            <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
+            <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
+            </br>
+            ${el.filmName}
+        </td>
+        `;
+    } else if (el.filmSubject === "Phim lẻ") {
+      singleMovie.innerHTML += `
+        <td class="col-1">
+            <img style="width:160px;height:240px;" src="${el.image}" alt="">
+            </br>
+            <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
+            <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
+            </br>
+            ${el.filmName}
+        </td>
+        `;
+    } else if (el.filmSubject === "Phim hài") {
+      comedyFilm.innerHTML += `
+          <td class="col-1">
+              <img style="width:160px;height:240px;" src="${el.image}" alt="">
+              </br>
+              <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
+              <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
+              </br>
+              ${el.filmName}
+          </td>
+          `;
+    } else if (el.filmSubject === "Phim hoạt hình") {
+      cartoonFilm.innerHTML += `
+          <td class="col-1">
+              <img style="width:160px;height:240px;" src="${el.image}" alt="">
+              </br>
+              <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
+              <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
+              </br>
+              ${el.filmName}
+          </td>
+          `;
     }
-                
-    tr.innerHTML += `<td class="col-2"><a href="listFilmDetail.html" class="btn btn-primary">Detail</a></td>`;
-
+  });
 }
 
-render()
+render();
+
+let del = document.querySelector("table .cartoonFilm .delete");
+del.onclick = (e) => {
+  e.preventDefault();
+  let idFilm = e.target.id.split("-")[1];
+
+  let index = listFilm.findIndex((el) => {
+    return el.id === +idFilm;
+  });
+
+  let confirm = window.confirm(
+    "Bạn có muốn xóa phim này khỏi danh mục phim này không?"
+  );
+
+  if (confirm) {
+    listFilm.splice(index, 1);
+
+    localStorage.listFilm = JSON.stringify(listFilm);
+
+    render();
+  }
+};

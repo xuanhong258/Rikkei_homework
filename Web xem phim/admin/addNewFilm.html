@@ -18,8 +18,8 @@
                 <i class="fa-solid fa-angle-down icon-down" onclick="openNav()"></i>
                 <i class="fa-solid fa-angle-up icon-up" onclick="closeNav()"></i>
                     <ul id="mySidenav" class="sidenav bg-primary">
-                        <li><a href="#">Danh mục phim</a></li>
-                        <li><a href="#">Chủ đề phim</a></li>
+                        <li><a href="listFilm.html">Danh mục phim</a></li>
+                        <li><a href="listSubjectFilm.html">Chủ đề phim</a></li>
                         <li><a href="#">User</a></li>
                         <li><a href="#">More</a></li>
                     </ul>           
@@ -27,7 +27,7 @@
         </div>
 
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-top: 6px;">
         <div class="row">
         <div class="col-3"></div>
         <div class="col-3">
@@ -38,11 +38,14 @@
                 
                 <label for="inputImage" class="form-label">Ảnh</label>
                 <br>
-                <img id="inputImage" src="" style="width:160px;height:200px" alt="Ảnh">
-                <input style="margin: 10px 0;" type="file" aria-describedby="inputImageHelpBlock">
+                <img src=""  style="width:160px;height:200px" alt="Ảnh">
+                <input id="inputImage" style="margin: 10px 0;" filmSubject type="file" aria-describedby="inputImageHelpBlock">
                 <br>
                 <label for="inputFilmName" class="form-label">Tên Phim</label>
                 <input type="text" id="inputFilmName" class="form-control" aria-describedby="inputFilmNameHelpBlock">
+                <br>
+                <label for="filmSubject" class="form-label">Chủ đề phim</label>
+                <input type="text" id="filmSubject" class="form-control" aria-describedby="filmSubjectHelpBlock">
                 <br>
                 
                 <label for="inputCondition" class="form-label">Trạng thái</label>

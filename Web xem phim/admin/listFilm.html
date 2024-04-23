@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Film</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="../src/styles/listFilm.css">
+</head>
+<body>
+    
+    
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid" style="display: flex;justify-content: flex-start;">
+            <a href="#"><img class="navbar-brand" src="../src/assets/images/motphimtv-brand.png" alt=""></a>
+            <span style="font-size:30px;cursor:pointer;"> 
+                <i class="fa-solid fa-angle-down icon-down" onclick="openNav()"></i>
+                <i class="fa-solid fa-angle-up icon-up" onclick="closeNav()"></i>        
+            </span>
+        </div>
+        <ul id="mySidenav" class="sidenav bg-primary">
+            <li><a href="listFilm.html">Danh mục phim</a></li>
+            <li><a href="listSubjectFilm.html">Chủ đề phim</a></li>
+            <li><a href="#">User</a></li>
+            <li><a href="#">More</a></li>
+        </ul>   
+
+    </nav>
+    <div class="container-fluid">
+        <div class="row" style="margin: 4px 0;">
+            <div class="col-9"></div>
+            <div class="col-3" style="display: flex;align-items: center;justify-content: flex-end;">
+                <input style="flex: 1;" class="search-input" type="text" placeholder="Nhập kết quả tìm kiếm....">
+                <button style="margin-left: 4px;" class="btn btn-info">Tìm kiếm</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-10" style="font-size: 30px;text-align: center;padding: 4px 0;">DANH MỤC PHIM</div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-10">
+                <table class="table table-bordered">
+                    <thead class="table-primary">
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Ảnh</th>
+                        <th scope="col">Tên phim</th>
+                        <th scope="col">Trạng thái</th>
+                        <th scope="col">Sắp chiếu</th>
+                        <th scope="col">Đạo diễn</th>
+                        <th scope="col">Thời lượng</th>
+                        <th scope="col">Số tập</th>
+                        <th scope="col">Tình trạng</th>
+                        <th scope="col">Ngôn ngữ</th>
+                        <th scope="col">Năm sản xuất</th>
+                        <th scope="col">Quốc gia</th>
+                        <th scope="col">Thể loại</th>
+                        <th scope="col">Diễn viên</th>
+                        <th scope="col">Like</th>
+                        <th scope="col">Share</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Lượt đánh giá</th>
+                        <th scope="col">Nội dung </th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-striped"></tbody>
+                  </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <a href="addNewFilm.html" id="btn-add-new-film" style="float: right;" class="btn btn-primary">Add new</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../src/scripts/listFilm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

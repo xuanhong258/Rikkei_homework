@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+.sidenav {
+    height: 100vh;
+    width: 280px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    overflow-x: hidden;
+    transition: 1s;
+    padding-top: 20px;
+    display: none;
+    padding-left: 0;
+}
+  
+  .sidenav li a{
+    padding: 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+    margin-left: 10px;
+  }
+
+  .sidenav li:nth-child(1){
+    background-color: #6c757d;
+  }
+
+  
+  .sidenav li:hover {
+    color: #d0cccc;
+    background-color: #6c757d;
+  }
+span i{
+    color: beige;
+}
+
+span i:nth-child(2){
+    display: none;
+}
+
+table > thead > tr{
+    text-align: center;
+}
+
+.search-input{
+    padding: 6px 4px;
+    border-radius: 10px;
+}
+

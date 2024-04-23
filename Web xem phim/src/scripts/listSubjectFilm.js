@@ -32,18 +32,20 @@ function render() {
   listFilm.forEach((el, index) => {
     if (el.filmSubject === "Phim hành động") {
       actionListFilm.innerHTML += `
-        <td class="col-1">
-            <img style="width:160px;height:240px;" src="${el.image}" alt="">
-            </br>
-            <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
-            <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
-            </br>
+        <td>
+            <span>
+              <img style="width:160px;height:240px;" src="${el.image}" alt="">
+            </span>
+            <span>
+              <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
+              <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
+            </span>
             ${el.filmName}
         </td>
         `;
     } else if (el.filmSubject === "Phim lẻ") {
       singleMovie.innerHTML += `
-        <td class="col-1">
+        <td>
             <img style="width:160px;height:240px;" src="${el.image}" alt="">
             </br>
             <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
@@ -54,7 +56,7 @@ function render() {
         `;
     } else if (el.filmSubject === "Phim hài") {
       comedyFilm.innerHTML += `
-          <td class="col-1">
+          <td>
               <img style="width:160px;height:240px;" src="${el.image}" alt="">
               </br>
               <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
@@ -65,7 +67,7 @@ function render() {
           `;
     } else if (el.filmSubject === "Phim hoạt hình") {
       cartoonFilm.innerHTML += `
-          <td class="col-1">
+          <td>
               <img style="width:160px;height:240px;" src="${el.image}" alt="">
               </br>
               <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
@@ -80,24 +82,27 @@ function render() {
 
 render();
 
-let del = document.querySelector("table .cartoonFilm .delete");
-del.onclick = (e) => {
-  e.preventDefault();
-  let idFilm = e.target.id.split("-")[1];
+let deleteBtns = document.querySelectorAll(".delete");
 
-  let index = listFilm.findIndex((el) => {
-    return el.id === +idFilm;
-  });
+deleteBtns.forEach((el) => {
+  el.onclick = (e) => {
+    e.preventDefault();
+    let idFilm = e.target.id.split("-")[1];
 
-  let confirm = window.confirm(
-    "Bạn có muốn xóa phim này khỏi danh mục phim này không?"
-  );
+    let index = listFilm.findIndex((el) => {
+      return el.id === +idFilm;
+    });
 
-  if (confirm) {
-    listFilm.splice(index, 1);
+    let confirm = window.confirm(
+      "Bạn có muốn xóa phim này khỏi danh mục phim này không?"
+    );
 
-    localStorage.listFilm = JSON.stringify(listFilm);
+    if (confirm) {
+      listFilm.splice(index, 1);
 
-    render();
-  }
-};
+      localStorage.listFilm = JSON.stringify(listFilm);
+
+      render();
+    }
+  };
+});

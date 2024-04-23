@@ -62,3 +62,13 @@ table > thead > tr{
 img{
   margin-bottom: 4px;
 }
+
+.action td,
+.singleMovie td,
+.comedyFilm td,
+.cartoonFilm td{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

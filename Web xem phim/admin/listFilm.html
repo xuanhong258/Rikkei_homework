@@ -30,9 +30,11 @@
     <div class="container-fluid">
         <div class="row" style="margin: 4px 0;">
             <div class="col-9"></div>
-            <div class="col-3" style="display: flex;align-items: center;justify-content: flex-end;">
-                <input style="flex: 1;" class="search-input" type="text" placeholder="Nhập kết quả tìm kiếm....">
-                <button style="margin-left: 4px;" class="btn btn-info search-btn">Tìm kiếm</button>
+            <div class="col-3">
+                <form onsubmit="submit()" style="display: flex;align-items: center;justify-content: flex-end;">
+                    <input style="flex: 1;" class="search-input" type="text" placeholder="Nhập kết quả tìm kiếm....">
+                    <button style="margin-left: 4px;" class="btn btn-info search-btn" >Tìm kiếm</button>
+                </form>
             </div>
         </div>
         <div class="row">

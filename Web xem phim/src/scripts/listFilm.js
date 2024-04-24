@@ -186,11 +186,10 @@ tbody.onclick = (e) => {
 };
 //Search
 let searchBtn = document.querySelector(".search-btn");
+let inputSearch = document.querySelector(".search-input");
 
-searchBtn.addEventListener("click", (e) => {
+function submit() {
   let listFilm = JSON.parse(localStorage.listFilm);
-  let inputSearch = document.querySelector(".search-input");
-
   let content = inputSearch.value;
   let tmp = [];
   let isCheck = false;
@@ -202,7 +201,7 @@ searchBtn.addEventListener("click", (e) => {
       }
     });
     if (isCheck) {
-      for(let value of tmp){
+      for (let value of tmp) {
         document.querySelector(".displayAll").innerHTML = "";
         let tr = `
               <td>${+value + 1}</td>
@@ -240,8 +239,10 @@ searchBtn.addEventListener("click", (e) => {
       }
     } else {
       alert("Không có kết quả phù hợp");
+      document.querySelector(".displayMatching").innerHTML = "";
+      render();
     }
   } else {
     alert("Vui lòng nhập từ khóa muốn tìm");
   }
-});
+}

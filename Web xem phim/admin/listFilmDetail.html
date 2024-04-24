@@ -13,7 +13,7 @@
     
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid" style="display: flex;justify-content: flex-start;">
-            <a href="listFilm.html"><img class="navbar-brand" src="../src/assets/images/motphimtv-brand.png" alt=""></a>
+            <a href="generalInterface.html"><img class="navbar-brand" src="../src/assets/images/motphimtv-brand.png" alt=""></a>
             <span style="font-size:30px;cursor:pointer;"> 
                 <i class="fa-solid fa-angle-down icon-down" onclick="openNav()"></i>
                 <i class="fa-solid fa-angle-up icon-up" onclick="closeNav()"></i>
@@ -22,7 +22,7 @@
         <ul id="mySidenav" class="sidenav bg-primary">
             <li><a href="listFilm.html">Danh mục phim</a></li>
             <li><a href="listSubjectFilm.html">Chủ đề phim</a></li>
-            <li><a href="#">User</a></li>
+            <li><a href="userAccount.html">User</a></li>
             <li><a href="#">More</a></li>
         </ul>           
 
@@ -38,8 +38,8 @@
                 
                 <label for="inputImage" class="form-label">Ảnh</label>
                 <br>
-                <img id="inputImage" src="" style="width:160px;height:200px" alt="Ảnh">
-                <input style="margin: 10px 0;" type="file" aria-describedby="inputImageHelpBlock">
+                <img id="Image" src="" style="width:160px;height:200px" alt="Ảnh">
+                <input id="inputImage" style="margin: 10px 0;" type="file" aria-describedby="inputImageHelpBlock">
                 <br>
                 <label for="inputFilmName" class="form-label">Tên Phim</label>
                 <input type="text" id="inputFilmName" class="form-control" aria-describedby="inputFilmNameHelpBlock">
@@ -70,10 +70,10 @@
                 <br>
                 
                 <label for="yearOfPublish" class="form-label">Năm sản xuất</label>
-                <input type="number" id="yearOfPublish" class="form-control" aria-describedby="yearOfPublishHelpBlock">
+                <input type="text" id="yearOfPublish" class="form-control" aria-describedby="yearOfPublishHelpBlock">
                 <br>
                 <button class="btn btn-primary">Save</button>
-                <a href="listFilm.html" class="btn btn-danger">Cancel</a>
+                <a class="btn btn-danger" onclick="notice()">Cancel</a>
 
             </form>
 
@@ -93,7 +93,7 @@
                 <br>
                 
                 <label for="like" class="form-label">Like</label>
-                <input type="number" id="like" class="form-control" aria-describedby="likeHelpBlock">
+                <input type="text" id="like" class="form-control" aria-describedby="likeHelpBlock">
                 <br>
                 
                 <label for="share" class="form-label">Share</label>
@@ -105,7 +105,7 @@
                 <br>
                 
                 <label for="numberOfRating" class="form-label">Lượt đánh giá</label>
-                <input type="number" id="numberOfRating" class="form-control" aria-describedby="numberOfRatingHelpBlock">
+                <input type="text" id="numberOfRating" class="form-control" aria-describedby="numberOfRatingHelpBlock">
                 <br>
                 
                 <label for="description" class="form-label">Nội dung</label>

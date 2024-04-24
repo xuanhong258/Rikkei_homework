@@ -16,7 +16,7 @@ function closeNav() {
 
 let listFilm = JSON.parse(localStorage.listFilm);
 
-let actionListFilm = document.querySelector(".action");
+let actionListFilm = document.querySelector("tbody .action");
 
 let singleMovie = document.querySelector(".singleMovie");
 
@@ -32,7 +32,7 @@ function render() {
   listFilm.forEach((el, index) => {
     if (el.filmSubject === "Phim hành động") {
       actionListFilm.innerHTML += `
-        <td>
+        <td class="col-2">
             <span>
               <img style="width:160px;height:240px;" src="${el.image}" alt="">
             </span>
@@ -45,37 +45,43 @@ function render() {
         `;
     } else if (el.filmSubject === "Phim lẻ") {
       singleMovie.innerHTML += `
-        <td>
-            <img style="width:160px;height:240px;" src="${el.image}" alt="">
-            </br>
-            <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
-            <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
-            </br>
-            ${el.filmName}
-        </td>
+      <td class="col-2">
+      <span>
+        <img style="width:160px;height:240px;" src="${el.image}" alt="">
+      </span>
+      <span>
+        <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
+        <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
+      </span>
+          ${el.filmName}
+      </td>
         `;
     } else if (el.filmSubject === "Phim hài") {
       comedyFilm.innerHTML += `
-          <td>
-              <img style="width:160px;height:240px;" src="${el.image}" alt="">
-              </br>
-              <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
-              <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
-              </br>
-              ${el.filmName}
-          </td>
+      <td class="col-2">
+        <span>
+          <img style="width:160px;height:240px;" src="${el.image}" alt="">
+        </span>
+      <span>
+        <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
+        <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
+      </span>
+      ${el.filmName}
+  </td>
           `;
     } else if (el.filmSubject === "Phim hoạt hình") {
       cartoonFilm.innerHTML += `
-          <td>
+          <td class="col-2">
+          <span>
               <img style="width:160px;height:240px;" src="${el.image}" alt="">
-              </br>
+          </span>
+          <span>
               <a href="listFilmDetail.html?id=${listFilm[index].id}" id="detail-btn" class="btn btn-secondary">Detail</a>
               <button id="btn-${listFilm[index].id}" class="btn btn-danger delete">Delete</button>
-              </br>
-              ${el.filmName}
+            </span>
+            ${el.filmName}
           </td>
-          `;
+        `;
     }
   });
 }

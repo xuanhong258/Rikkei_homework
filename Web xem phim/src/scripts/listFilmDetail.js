@@ -24,7 +24,7 @@ let film = listFilm.find(el => {
 
 
 document.getElementById("inputID").value = film.id;
-document.getElementById("inputImage").setAttribute("src",`${film.image}`);
+document.getElementById("Image").setAttribute("src",`${film.image}`);
 document.getElementById("inputFilmName").value = film.filmName;
 document.getElementById("inputCondition").value = film.condition;
 document.getElementById("inputCommingsoon").value = film.comingSoon;
@@ -43,7 +43,12 @@ document.getElementById("rating").value = film.rating;
 document.getElementById("numberOfRating").value = film.numberOfRatings;
 document.getElementById("description").value = film.description;
 
+let img = document.querySelector("form img");
 
+let chooseFile = document.getElementById("inputImage");
+chooseFile.onchange = () => {
+  img.src = URL.createObjectURL(chooseFile.files[0]);
+};
 
 document.querySelector(".btn-primary").onclick = (e) => {
     e.preventDefault()
@@ -55,7 +60,9 @@ document.querySelector(".btn-primary").onclick = (e) => {
         listFilm[index] = {
             ...listFilm[index],
             id : document.getElementById("inputID").value,
-            image : document.getElementById("inputImage").getAttribute("src"),
+            image : `../src/assets/images/`.concat(
+                document.getElementById("inputImage").value.split("\\")[2]
+              ),
             filmName : document.getElementById("inputFilmName").value,
             condition : document.getElementById("inputCondition").value,
             comingSoon : document.getElementById("inputCommingsoon").value,
@@ -80,3 +87,9 @@ document.querySelector(".btn-primary").onclick = (e) => {
     }
 }
 
+function notice() {
+    let confirm = window.confirm("Bạn có muốn hủy bỏ thay đổi này không?");
+    if(confirm){
+        location.replace('listFilm.html');
+    }
+}

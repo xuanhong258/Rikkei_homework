@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+.sidenav {
+    height: 100vh;
+    width: 280px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    overflow-x: hidden;
+    transition: 1s;
+    padding-top: 20px;
+    display: none;
+    padding-left: 0;
+}
+  
+  .sidenav li a{
+    padding: 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+    margin-left: 10px;
+  }
+
+  .sidenav li:nth-child(3){
+    background-color: #6c757d;
+  }
+
+  
+  .sidenav li:hover {
+    color: #d0cccc;
+    background-color: #6c757d;
+  }
+span i{
+    color: beige;
+}
+
+span i:nth-child(2){
+    display: none;
+}
+
+table > thead > tr{
+    text-align: center;
+}
+
+.search-input{
+    padding: 6px 4px;
+    border-radius: 10px;
+}
+
+tbody tr td{
+    text-align: center;
+}
+
+.icon-email{
+    position: relative;
+    color: #333;
+    font-size: 36px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.icon-email:hover.icon-email::after{
+    display: block;
+}
+.icon-email::after{
+    content: "Send mail";
+    width: 100px;
+    position: absolute;
+    font-size: 12px;
+    top: 38px;
+    left: -29px;
+    display: none;
+}
+.icon-edit{
+    color: #333;
+    font-size: 32px;
+    position: relative;
+    cursor: pointer;
+}
+
+.icon-edit::after{
+    content: "Edit";
+    width: 100px;
+    position: absolute;
+    font-size: 12px;
+    top: 38px;
+    left: -40px;
+    display: none;
+}
+
+.icon-edit:hover.icon-edit::after{
+    display: block;
+}
+
+.icon-setting{
+    font-size: 32px;
+    color: #333;
+    margin-left: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.icon-setting::after{
+    content: "Setting";
+    width: 100px;
+    position: absolute;
+    font-size: 12px;
+    top: 35px;
+    left: -29px;
+    display: none;
+}
+
+.icon-setting:hover.icon-setting::after{
+    display: block;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+

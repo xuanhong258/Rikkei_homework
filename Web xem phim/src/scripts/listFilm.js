@@ -184,7 +184,7 @@ tbody.onclick = (e) => {
     }
   }
 };
-
+//Search
 let searchBtn = document.querySelector(".search-btn");
 
 searchBtn.addEventListener("click", (e) => {
@@ -192,49 +192,52 @@ searchBtn.addEventListener("click", (e) => {
   let inputSearch = document.querySelector(".search-input");
 
   let content = inputSearch.value;
-  let tmp;
+  let tmp = [];
   let isCheck = false;
   if (content !== "") {
     listFilm.forEach((el, index) => {
       if (el.filmName.includes(content)) {
         isCheck = true;
-        tmp = index;
+        tmp.push(index);
       }
     });
     if (isCheck) {
-      document.querySelector(".displayAll").innerHTML = "";
-      document.querySelector(".displayMatching").innerHTML = `
-            <td>${+tmp + 1}</td>
-            <td><img style="width:160px;height:200px" src="${
-              listFilm[tmp].image
-            }"></td>
-            <td>${listFilm[tmp].filmName}</td>
-            <td>${listFilm[tmp].condition}</td>
-            <td>${listFilm[tmp].comingSoon}</td>
-            <td>${listFilm[tmp].director}</td>
-            <td>${listFilm[tmp].time}</td>
-            <td>${listFilm[tmp].episodes}</td>
-            <td>${listFilm[tmp].status}</td>
-            <td>${listFilm[tmp].language}</td>
-            <td>${listFilm[tmp].yearOfProduction}</td>
-            <td>${listFilm[tmp].country}</td>
-            <td>${listFilm[tmp].genre}</td>
-            <td>${listFilm[tmp].actor}</td>
-            <td>${listFilm[tmp].like}</td>
-            <td>${listFilm[tmp].share}</td>
-            <td>${listFilm[tmp].rating}</td>
-            <td>${listFilm[tmp].numberOfRatings}</td>
-            <td>${listFilm[tmp].description.substring(0, 100) + "..."}</td>
-            <td>
-                <button class="btn btn-danger" id="${
-                  listFilm[tmp].id
-                }">Delete</button>
-                <a style="margin-top:10px;" href="listFilmDetail.html?id=${
-                  listFilm[tmp].id
-                }" class="btn btn-secondary">View</a>
-            </td>
-          </tr> 
-      `;
+      for(let value of tmp){
+        document.querySelector(".displayAll").innerHTML = "";
+        let tr = `
+              <td>${+value + 1}</td>
+              <td><img style="width:160px;height:200px" src="${
+                listFilm[value].image
+              }"></td>
+              <td>${listFilm[value].filmName}</td>
+              <td>${listFilm[value].condition}</td>
+              <td>${listFilm[value].comingSoon}</td>
+              <td>${listFilm[value].director}</td>
+              <td>${listFilm[value].time}</td>
+              <td>${listFilm[value].episodes}</td>
+              <td>${listFilm[value].status}</td>
+              <td>${listFilm[value].language}</td>
+              <td>${listFilm[value].yearOfProduction}</td>
+              <td>${listFilm[value].country}</td>
+              <td>${listFilm[value].genre}</td>
+              <td>${listFilm[value].actor}</td>
+              <td>${listFilm[value].like}</td>
+              <td>${listFilm[value].share}</td>
+              <td>${listFilm[value].rating}</td>
+              <td>${listFilm[value].numberOfRatings}</td>
+              <td>${listFilm[value].description.substring(0, 100) + "..."}</td>
+              <td>
+                  <button class="btn btn-danger" id="${
+                    listFilm[value].id
+                  }">Delete</button>
+                  <a style="margin-top:10px;" href="listFilmDetail.html?id=${
+                    listFilm[value].id
+                  }" class="btn btn-secondary">View</a>
+              </td>
+            </tr> 
+        `;
+        document.querySelector(".displayMatching").innerHTML += tr;
+      }
     } else {
       alert("Không có kết quả phù hợp");
     }

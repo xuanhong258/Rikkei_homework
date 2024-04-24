@@ -20,17 +20,17 @@ cancelBtn.onclick = (e) => {
 
   let confirm = window.confirm("Dữ liệu chưa được lưu bạn có muốn thoát???");
   if (confirm) {
-    e.target.href = "listFilm.html";
+    location.replace('listFilm.html');
   }
 };
 let listFilm = JSON.parse(localStorage.listFilm);
 
 let addBtn = document.querySelector(".btn-primary");
 
-let chooseFile = document.getElementById("inputImage");
 
 let img = document.querySelector("form img");
 
+let chooseFile = document.getElementById("inputImage");
 chooseFile.onchange = () => {
   img.src = URL.createObjectURL(chooseFile.files[0]);
 };
@@ -39,7 +39,7 @@ addBtn.onclick = (e) => {
   e.preventDefault();
   let newFilm = {
     id: listFilm[listFilm.length - 1].id + 1,
-    image: `../src/assets/images/Phim bộ/`.concat(
+    image: `../src/assets/images/`.concat(
       document.getElementById("inputImage").value.split("\\")[2]
     ),
     filmName: document.getElementById("inputFilmName").value,

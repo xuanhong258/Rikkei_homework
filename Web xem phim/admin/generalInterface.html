@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="../src/styles/generalInterface.css">
+</head>
+<body>
+    
+    
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+            <div class="brand-nav" style="display: flex;justify-content: flex-start; align-items: center;">
+                <a href="generalInterface.html"><img class="navbar-brand" src="../src/assets/images/motphimtv-brand.png" alt=""></a>
+                <span style="font-size:30px;cursor:pointer;"> 
+                    <i class="fa-solid fa-angle-down icon-down" onclick="openNav()"></i>
+                    <i class="fa-solid fa-angle-up icon-up" onclick="closeNav()"></i>        
+                </span>
+            </div>
+
+            <div class="admin-info">
+                <span class="name-admin">hong.tran</span>
+                <span class="user-avatar">
+                    <i class="fa-regular fa-user"></i>
+                </span>
+                <span class="log-out">
+                    <i class="fa-solid fa-caret-down"></i>
+                </span>
+            </div>
+        </div>
+        <ul id="mySidenav" class="sidenav bg-primary">
+            <li><a href="listFilm.html">Danh mục phim</a></li>
+            <li><a href="listSubjectFilm.html">Chủ đề phim</a></li>
+            <li><a href="userAccount.html">User</a></li>
+            <li><a href="#">More</a></li>
+        </ul>   
+
+    </nav>
+
+    <div class="container-fluid">
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-2 text">
+                CHÀO MỪNG BẠN ĐẾN TRANG ADMIN WEB PHIM ^^
+            </div>
+        </div>
+    </div>
+    
+    <script src="../src/scripts/generalInterface.js"></script>
+    <script src=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

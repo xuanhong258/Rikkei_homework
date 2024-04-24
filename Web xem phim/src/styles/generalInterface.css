@@ -6,6 +6,8 @@
 
 body {
     font-family: "Lato", sans-serif;
+    background-image: url(../assets/images/wp5077198.webp);
+    min-height: 100vh;
   }
   
 .sidenav {
@@ -32,11 +34,6 @@ body {
     margin-left: 10px;
   }
 
-  .sidenav li:nth-child(2){
-    background-color: #6c757d;
-  }
-
-  
   .sidenav li:hover {
     color: #d0cccc;
     background-color: #6c757d;
@@ -49,34 +46,44 @@ span i:nth-child(2){
     display: none;
 }
 
-table > thead > tr{
-    text-align: center;
-}
-
-.search-input{
-    padding: 6px 4px;
-    border-radius: 10px;
+.text{
+    font-size: 50px;
+    color: #fff;
 }
 
 
-img{
-  margin-bottom: 4px;
+.user-avatar i,
+.log-out i{
+  font-size: 30px;
 }
 
-.action td,
-.singleMovie td,
-.comedyFilm td,
-.cartoonFilm td{
+.user-avatar{
+  background-color: #333;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  border-radius: 50%;
+  margin-right: 8px;
 }
 
-
-.action,
-.singleMovie,
-.comedyFilm,
-.cartoonFilm{
+.log-out{
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-info{
+  display: flex;
+}
+
+.name-admin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin-right: 6px;
+  color: #fff;
 }

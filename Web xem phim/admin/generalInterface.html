@@ -16,19 +16,31 @@
             <div class="brand-nav" style="display: flex;justify-content: flex-start; align-items: center;">
                 <a href="generalInterface.html"><img class="navbar-brand" src="../src/assets/images/motphimtv-brand.png" alt=""></a>
                 <span style="font-size:30px;cursor:pointer;"> 
-                    <i class="fa-solid fa-angle-down icon-down" onclick="openNav()"></i>
-                    <i class="fa-solid fa-angle-up icon-up" onclick="closeNav()"></i>        
+                    <i class="fa-solid fa-angle-down" onclick="openNav()"></i>
+                    <i class="fa-solid fa-angle-up" onclick="closeNav()"></i>        
                 </span>
             </div>
 
             <div class="admin-info">
-                <span class="name-admin">hong.tran</span>
+                <span class="name-admin"></span>
                 <span class="user-avatar">
                     <i class="fa-regular fa-user"></i>
                 </span>
-                <span class="log-out">
-                    <i class="fa-solid fa-caret-down"></i>
-                </span>
+                <div class="log-out">
+                    <div class="log-out-icon">
+                        <i class="fa-solid fa-caret-down" onclick="openNavLogout()"></i>
+                        <i class="fa-solid fa-caret-up" onclick="closeNavLogout()"></i>
+                    </div>
+                </div>
+                <ul class="options">
+                    <li class="info">Thông tin</li>
+                    <li class="log-out-btn">
+                        <a href="login.html">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+                            <span>Log out</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
         <ul id="mySidenav" class="sidenav bg-primary">

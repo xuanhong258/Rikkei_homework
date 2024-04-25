@@ -7,6 +7,9 @@
 body {
     font-family: "Lato", sans-serif;
     background-image: url(../assets/images/wp5077198.webp);
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
     min-height: 100vh;
   }
   
@@ -74,16 +77,70 @@ span i:nth-child(2){
   align-items: center;
   justify-content: center;
 }
-
+.log-out-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .admin-info{
   display: flex;
+  position: relative;
 }
 
 .name-admin{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: 28px;
   margin-right: 6px;
   color: #fff;
+}
+
+
+.options{
+  padding-left: 0;
+  list-style: none;
+  position: absolute;
+  top: 75px;
+  right: -2px;
+  width: 200px;
+  background: #f0f2f5;
+  display: none;
+}
+.info{
+  font-size: 20px;
+  color: #2a2828;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.options a i{
+  font-size: 22px;
+  color: #a25656;
+
+}
+
+.options a{
+  display: block;
+  font-size: 20px;
+  text-decoration: none;
+  color: #a25656;
+  padding: 10px;
+}
+
+.info:hover, .log-out-btn:hover {
+  background-color: #494848;
+  color: #fff;
+}
+
+.log-out-icon{
+  color: #fff;
+}
+
+.log-out-icon i {
+  cursor: pointer;
+}
+
+.log-out-icon i:nth-child(2){
+  display: none;
 }

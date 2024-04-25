@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #111010;
+}
+
+form{
+    background-color: #989595;
+    padding: 50px 100px;
+    border-radius: 4px;
+}
+label{
+    color: #1b1a1a;
+}
+.btn-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.text-footer{
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-footer span {
+    color: #1b1a1a;
+}

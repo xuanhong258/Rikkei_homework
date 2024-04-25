@@ -134,28 +134,28 @@ function render() {
   let listFilm = JSON.parse(localStorage.listFilm);
   for (let index in listFilm) {
     let row = `<tr>
-                        <td>${+index + 1}</td>
-                        <td><img style="width:160px;height:200px" src="${
+                        <td class="text-light">${+index + 1}</td>
+                        <td class="text-light"><img style="width:160px;height:200px" src="${
                           listFilm[index].image
                         }"></td>
-                        <td>${listFilm[index].filmName}</td>
-                        <td>${listFilm[index].condition}</td>
-                        <td>${listFilm[index].comingSoon}</td>
-                        <td>${listFilm[index].director}</td>
-                        <td>${listFilm[index].time}</td>
-                        <td>${listFilm[index].episodes}</td>
-                        <td>${listFilm[index].status}</td>
-                        <td>${listFilm[index].language}</td>
-                        <td>${listFilm[index].yearOfProduction}</td>
-                        <td>${listFilm[index].country}</td>
-                        <td>${listFilm[index].genre}</td>
-                        <td>${listFilm[index].actor}</td>
-                        <td>${listFilm[index].like}</td>
-                        <td>${listFilm[index].share}</td>
-                        <td>${listFilm[index].rating}</td>
-                        <td>${listFilm[index].numberOfRatings}</td>
-                        <td>${
-                          listFilm[index].description.substring(0, 100) + "..."
+                        <td class="text-light">${listFilm[index].filmName}</td>
+                        <td class="text-light">${listFilm[index].condition}</td>
+                        <td class="text-light">${listFilm[index].comingSoon}</td>
+                        <td class="text-light">${listFilm[index].director}</td>
+                        <td class="text-light">${listFilm[index].time}</td>
+                        <td class="text-light">${listFilm[index].episodes}</td>
+                        <td class="text-light">${listFilm[index].status}</td>
+                        <td class="text-light">${listFilm[index].language}</td>
+                        <td class="text-light">${listFilm[index].yearOfProduction}</td>
+                        <td class="text-light">${listFilm[index].country}</td>
+                        <td class="text-light">${listFilm[index].genre}</td>
+                        <td class="text-light">${listFilm[index].actor.substring(0, 50) + "..."}</td>
+                        <td class="text-light">${listFilm[index].like}</td>
+                        <td class="text-light">${listFilm[index].share}</td>
+                        <td class="text-light">${listFilm[index].rating}</td>
+                        <td class="text-light">${listFilm[index].numberOfRatings}</td>
+                        <td class="text-light">${
+                          listFilm[index].description.substring(0, 70) + "..."
                         }</td>
                         <td>
                             <button class="btn btn-danger" id="${
@@ -184,11 +184,13 @@ tbody.onclick = (e) => {
     }
   }
 };
-//Search
+//Search by button
 let searchBtn = document.querySelector(".search-btn");
 let inputSearch = document.querySelector(".search-input");
 
-function submit() {
+searchBtn.onclick = (e) => {
+  e.preventDefault();
+  document.querySelector(".displayMatching").innerHTML = "";
   let listFilm = JSON.parse(localStorage.listFilm);
   let content = inputSearch.value;
   let tmp = [];
@@ -244,5 +246,69 @@ function submit() {
     }
   } else {
     alert("Vui lòng nhập từ khóa muốn tìm");
+    render();
+  }
+}
+
+//Search by Enter button
+
+function submit() {
+  document.querySelector(".displayMatching").innerHTML = "";
+  let listFilm = JSON.parse(localStorage.listFilm);
+  let content = inputSearch.value;
+  let tmp = [];
+  let isCheck = false;
+  if (content !== "") {
+    listFilm.forEach((el, index) => {
+      if (el.filmName.includes(content)) {
+        isCheck = true;
+        tmp.push(index);
+      }
+    });
+    if (isCheck) {
+      for (let value of tmp) {
+        document.querySelector(".displayAll").innerHTML = "";
+        let tr = `
+              <td class="text-light">${+value + 1}</td>
+              <td class="text-light"><img style="width:160px;height:200px" src="${
+                listFilm[value].image
+              }"></td>
+              <td class="text-light">${listFilm[value].filmName}</td>
+              <td class="text-light">${listFilm[value].condition}</td>
+              <td class="text-light">${listFilm[value].comingSoon}</td>
+              <td class="text-light">${listFilm[value].director}</td>
+              <td class="text-light">${listFilm[value].time}</td>
+              <td class="text-light">${listFilm[value].episodes}</td>
+              <td class="text-light">${listFilm[value].status}</td>
+              <td class="text-light">${listFilm[value].language}</td>
+              <td class="text-light">${listFilm[value].yearOfProduction}</td>
+              <td class="text-light">${listFilm[value].country}</td>
+              <td class="text-light">${listFilm[value].genre}</td>
+              <td class="text-light">${listFilm[value].actor}</td>
+              <td class="text-light">${listFilm[value].like}</td>
+              <td class="text-light">${listFilm[value].share}</td>
+              <td class="text-light">${listFilm[value].rating}</td>
+              <td class="text-light">${listFilm[value].numberOfRatings}</td>
+              <td class="text-light">${listFilm[value].description.substring(0, 100) + "..."}</td>
+              <td>
+                  <button class="btn btn-danger" id="${
+                    listFilm[value].id
+                  }">Delete</button>
+                  <a style="margin-top:10px;" href="listFilmDetail.html?id=${
+                    listFilm[value].id
+                  }" class="btn btn-secondary">View</a>
+              </td>
+            </tr> 
+        `;
+        document.querySelector(".displayMatching").innerHTML += tr;
+      }
+    } else {
+      alert("Không có kết quả phù hợp");
+      document.querySelector(".displayMatching").innerHTML = "";
+      render();
+    }
+  } else {
+    alert("Vui lòng nhập từ khóa muốn tìm");
+    render();
   }
 }

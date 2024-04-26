@@ -14,6 +14,26 @@ function closeNav() {
   document.querySelector("span i:first-child").style.display = "block";
 }
 
+//Back trang chủ vẫn giữ nguyên user đăng nhập
+let brandIcon = document.getElementById('brand-icon');
+
+console.log(brandIcon);
+let userAccount = JSON.parse(localStorage.userAccount);
+
+let isCheck = false;
+let position;
+userAccount.forEach((el,index) => {
+  if(el.status){
+    isCheck = true;
+    position = index;
+  }
+})
+
+brandIcon.onclick = () => {
+  location.href = `generalInterface.html?id=${userAccount[position].id}`;
+}
+
+
 let listFilm = JSON.parse(localStorage.listFilm);
 
 let actionListFilm = document.querySelector("tbody .action");
@@ -30,7 +50,7 @@ function render() {
   comedyFilm.innerHTML = "";
   cartoonFilm.innerHTML = "";
   listFilm.forEach((el, index) => {
-    if (el.filmSubject === "Phim hành động") {
+    if (el.filmSubject === "phim hành động") {
       actionListFilm.innerHTML += `
         <td class="col-2">
             <span>
@@ -43,7 +63,7 @@ function render() {
             ${el.filmName}
         </td>
         `;
-    } else if (el.filmSubject === "Phim lẻ") {
+    } else if (el.filmSubject === "phim lẻ") {
       singleMovie.innerHTML += `
       <td class="col-2">
       <span>
@@ -56,7 +76,7 @@ function render() {
           ${el.filmName}
       </td>
         `;
-    } else if (el.filmSubject === "Phim hài") {
+    } else if (el.filmSubject === "phim hài") {
       comedyFilm.innerHTML += `
       <td class="col-2">
         <span>
@@ -69,7 +89,7 @@ function render() {
       ${el.filmName}
   </td>
           `;
-    } else if (el.filmSubject === "Phim hoạt hình") {
+    } else if (el.filmSubject === "phim hoạt hình") {
       cartoonFilm.innerHTML += `
           <td class="col-2">
           <span>

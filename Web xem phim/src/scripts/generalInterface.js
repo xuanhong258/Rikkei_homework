@@ -28,12 +28,41 @@ function openNav() {
     document.querySelector('.log-out-icon i:nth-child(2)').style.display = 'none';
   }
 
-
-
 let nameAdmin = document.querySelector('.name-admin');
 
-let index = window.location.search.split("=")[1];
+
+let id = window.location.search.split("=")[1];
 
 let userAccount = JSON.parse(localStorage.userAccount);
 
-nameAdmin.innerText = userAccount[index].userName;
+let isCheck = false;
+
+let position;
+
+userAccount.forEach((user,index) => {
+  if(user.id === +id){
+    isCheck = true;
+    position = index;
+  }
+});
+
+if(isCheck){
+  nameAdmin.innerText = userAccount[position].userName;
+}
+
+
+//Back trang chủ vẫn giữ nguyên user đăng nhập
+let brandIcon = document.getElementById('brand-icon');
+
+let flag = false;
+let pos;
+userAccount.forEach((el,index) => {
+  if(el.status){
+    flag = true;
+    pos = index;
+  }
+})
+
+brandIcon.onclick = () => {
+  location.href = `generalInterface.html?id=${userAccount[pos].id}`;
+}

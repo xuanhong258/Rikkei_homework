@@ -14,6 +14,26 @@ function closeNav() {
   document.querySelector("span i:first-child").style.display = "block";
 }
 
+//Back trang chủ vẫn giữ nguyên user đăng nhập
+let brandIcon = document.getElementById('brand-icon');
+
+console.log(brandIcon);
+let userAccount = JSON.parse(localStorage.userAccount);
+
+let isCheck = false;
+let position;
+userAccount.forEach((el,index) => {
+  if(el.status){
+    isCheck = true;
+    position = index;
+  }
+})
+
+brandIcon.onclick = () => {
+  location.href = `generalInterface.html?id=${userAccount[position].id}`;
+}
+
+
 let cancelBtn = document.querySelector(".btn-danger");
 cancelBtn.onclick = (e) => {
   e.preventDefault();
@@ -35,6 +55,33 @@ chooseFile.onchange = () => {
   img.src = URL.createObjectURL(chooseFile.files[0]);
 };
 
+let id = window.location.search.split("=")[1];
+
+switch(id){
+  case '1':
+    document.getElementById("filmSubject").value = 'phim hành động';
+    document.getElementById("filmSubject").setAttribute('readonly','');
+    break;
+  case '2':
+    document.getElementById("filmSubject").value = 'phim lẻ';
+    document.getElementById("filmSubject").setAttribute('readonly','');
+    break;
+  case '3':
+    document.getElementById("filmSubject").value = 'phim hài';
+    document.getElementById("filmSubject").setAttribute('readonly','');
+    break;
+  case '4':
+    document.getElementById("filmSubject").value = 'phim hoạt hình';
+    document.getElementById("filmSubject").setAttribute('readonly','');
+    break;
+  default:
+    break;
+}
+
+
+
+
+
 addBtn.onclick = (e) => {
   e.preventDefault();
   let newFilm = {
@@ -49,6 +96,7 @@ addBtn.onclick = (e) => {
     director: document.getElementById("inputDirector").value,
     time: document.getElementById("inputTime").value,
     episodes: document.getElementById("episodes").value,
+    status: document.getElementById("status").value,
     language: document.getElementById("language").value,
     yearOfProduction: document.getElementById("yearOfPublish").value,
     country: document.getElementById("country").value,
@@ -65,6 +113,7 @@ addBtn.onclick = (e) => {
   let confirm = window.confirm("Bạn có muốn thêm mới phim này không???");
   if (confirm) {
     listFilm.push(newFilm);
+    window.location.href = 'listSubjectFilm.html';
     alert("Đã thêm phim mới thành công!!!");
   }
   localStorage.listFilm = JSON.stringify(listFilm);

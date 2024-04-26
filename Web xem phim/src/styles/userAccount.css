@@ -31,9 +31,12 @@ body {
     transition: 0.3s;
     margin-left: 10px;
   }
-
   .sidenav li:nth-child(3){
-    background-color: #6c757d;
+    background-color: #d8e6f3;
+  }
+  
+  .sidenav li:nth-child(3) a {
+    color: #333;
   }
 
   

@@ -25,6 +25,7 @@ submitBtn.addEventListener('click',() =>{
         userName: userName.value,
         userPassword: userPassword.value,
         userEmail: userEmail.value,
+        status: false,
     };
     
     

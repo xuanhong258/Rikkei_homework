@@ -13,7 +13,7 @@
     
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid" style="display: flex;justify-content: flex-start;">
-            <a href="generalInterface.html"><img class="navbar-brand" src="../src/assets/images/motphimtv-brand.png" alt=""></a>
+            <a id="brand-icon" style="cursor: pointer;"><img class="navbar-brand" src="../src/assets/images/motphimtv-brand.png" alt=""></a>
             <span style="font-size:30px;cursor:pointer;"> 
                 <i class="fa-solid fa-angle-down icon-down" onclick="openNav()"></i>
                 <i class="fa-solid fa-angle-up icon-up" onclick="closeNav()"></i>
@@ -67,14 +67,14 @@
                 <label for="episodes" class="form-label">Số tập</label>
                 <input type="text" id="episodes" class="form-control" aria-describedby="episodesHelpBlock">
                 <br>
+                <label for="status" class="form-label">Tình trạng</label>
+                <input type="text" id="status" class="form-control" aria-describedby="statusHelpBlock">
+                <br>
                 
                 <label for="language" class="form-label">Ngôn ngữ</label>
                 <input type="text" id="language" class="form-control" aria-describedby="languageHelpBlock">
                 <br>
                 
-                <label for="yearOfPublish" class="form-label">Năm sản xuất</label>
-                <input type="text" id="yearOfPublish" class="form-control" aria-describedby="yearOfPublishHelpBlock">
-                <br>
                 <button class="btn btn-primary">Add</button>
                 <a href="listFilm.html" class="btn btn-danger">Cancel</a>
 
@@ -83,6 +83,9 @@
         </div>
         <div class="col-3">
             <form action="">
+                <label for="yearOfPublish" class="form-label">Năm sản xuất</label>
+                <input type="text" id="yearOfPublish" class="form-control" aria-describedby="yearOfPublishHelpBlock">
+                <br>
                 <label for="country" class="form-label">Quốc gia</label>
                 <input type="text" id="country" class="form-control" aria-describedby="countryHelpBlock">
                 <br>

@@ -33,7 +33,11 @@ body {
   }
 
   .sidenav li:nth-child(2){
-    background-color: #6c757d;
+    background-color: #d8e6f3;
+  }
+  
+  .sidenav li:nth-child(2) a {
+    color: #333;
   }
 
   

@@ -13,7 +13,7 @@
     
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid" style="display: flex;justify-content: flex-start;">
-            <a href="generalInterface.html"><img class="navbar-brand" src="../src/assets/images/motphimtv-brand.png" alt=""></a>
+            <a id="brand-icon" style="cursor:pointer;"><img class="navbar-brand" src="../src/assets/images/motphimtv-brand.png" alt=""></a>
             <span style="font-size:30px;cursor:pointer;"> 
                 <i class="fa-solid fa-angle-down icon-down" onclick="openNav()"></i>
                 <i class="fa-solid fa-angle-up icon-up" onclick="closeNav()"></i>
@@ -43,8 +43,15 @@
                     <input type="text" id="userEmail" class="form-control" aria-describedby="useremailHelpBlock">
                     <br>
                     
-                    <label for="title" class="form-label">Title</label>
-                    <input type="text" id="title" class="form-control" aria-describedby="titleHelpBlock">
+                    <!-- <label for="title" class="form-label">Title</label>
+                    <input type="text" id="title" class="form-control" aria-describedby="titleHelpBlock"> -->
+                    <br>
+                    <label for="exampleDataList" class="form-label">Title</label>
+                    <input class="form-control" list="datalistOptions" id="title" placeholder="Click to choose...">
+                        <datalist id="datalistOptions">
+                            <option value="Admin">
+                            <option value="User">
+                        </datalist>
                     <br>
                     
                     

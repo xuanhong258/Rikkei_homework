@@ -19,7 +19,7 @@ const listFilm = [
     id: 1,
     image: "../src/assets/images/cong-anh-ma-chay.jpg",
     filmName: "CÕNG ANH MÀ CHẠY",
-    filmSubject: "Phim hài",
+    filmSubject: "phim hài",
     condition: "Tập 5 Vietsub",
     comingSoon: "Tập 6 VIETSUB",
     director: "Boo Sung Chul, Yoon Jong Ho, Kim Tae Yeong",
@@ -44,7 +44,7 @@ const listFilm = [
     id: 2,
     image: "../src/assets/images/tiem-chup-anh-ma-quai.jpg",
     filmName: "TIỆM CHỤP ẢNH MA QUÁI",
-    filmSubject: "Phim hành động",
+    filmSubject: "phim hành động",
     condition: "Tập 12 Vietsub",
     comingSoon: "Tập 13 VIETSUB",
     director: "Song Hyun Wook",
@@ -68,7 +68,7 @@ const listFilm = [
     id: 3,
     image: "../src/assets/images/cap-nhi-tan-1944.jpg",
     filmName: "CÁP NHĨ TÂN 1944",
-    filmSubject: "Phim lẻ",
+    filmSubject: "phim lẻ",
     condition: "Tập 8 Vietsub",
     comingSoon: "Tập 9 VIETSUB",
     director: "Trương Lê",
@@ -101,7 +101,7 @@ const listFilm = [
     image: "../src/assets/images/dao-hai-tac.jpg",
     filmName: "ĐẢO HẢI TẶC",
     condition: "Tập 1101 Vietsub",
-    filmSubject: "Phim hoạt hình",
+    filmSubject: "phim hoạt hình",
     comingSoon: "Tập 1102 Vietsub",
     director: "Konosuke Uda, Munehisa Sakai, Mamoru Hosoda",
     time: "25 phút / tập",
@@ -126,6 +126,27 @@ const listFilm = [
 ];
 
 // localStorage.listFilm = JSON.stringify(listFilm);
+
+//Back trang chủ vẫn giữ nguyên user đăng nhập
+let brandIcon = document.getElementById('brand-icon');
+
+console.log(brandIcon);
+let userAccount = JSON.parse(localStorage.userAccount);
+
+let isCheck = false;
+let position;
+userAccount.forEach((el,index) => {
+  if(el.status){
+    isCheck = true;
+    position = index;
+  }
+})
+
+brandIcon.onclick = () => {
+  location.href = `generalInterface.html?id=${userAccount[position].id}`;
+}
+
+
 
 let tbody = document.querySelector(".table tbody");
 

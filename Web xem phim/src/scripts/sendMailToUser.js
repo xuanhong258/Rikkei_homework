@@ -14,6 +14,27 @@ function openNav() {
     document.querySelector("span i:first-child").style.display = "block";
   }
 
+//Back trang chủ vẫn giữ nguyên user đăng nhập
+let brandIcon = document.getElementById('brand-icon');
+
+console.log(brandIcon);
+let userAccount = JSON.parse(localStorage.userAccount);
+
+let isCheck = false;
+let position;
+userAccount.forEach((el,index) => {
+  if(el.status){
+    isCheck = true;
+    position = index;
+  }
+})
+
+brandIcon.onclick = () => {
+  location.href = `generalInterface.html?id=${userAccount[position].id}`;
+}
+
+
+
 let users = JSON.parse(localStorage.users);
 
 let id = window.location.search.split("=")[1];

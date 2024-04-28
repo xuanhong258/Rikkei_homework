@@ -128,25 +128,23 @@ const listFilm = [
 // localStorage.listFilm = JSON.stringify(listFilm);
 
 //Back trang chủ vẫn giữ nguyên user đăng nhập
-let brandIcon = document.getElementById('brand-icon');
+let brandIcon = document.getElementById("brand-icon");
 
 console.log(brandIcon);
 let userAccount = JSON.parse(localStorage.userAccount);
 
 let isCheck = false;
 let position;
-userAccount.forEach((el,index) => {
-  if(el.status){
+userAccount.forEach((el, index) => {
+  if (el.status) {
     isCheck = true;
     position = index;
   }
-})
+});
 
 brandIcon.onclick = () => {
   location.href = `generalInterface.html?id=${userAccount[position].id}`;
-}
-
-
+};
 
 let tbody = document.querySelector(".table tbody");
 
@@ -161,20 +159,28 @@ function render() {
                         }"></td>
                         <td class="text-light">${listFilm[index].filmName}</td>
                         <td class="text-light">${listFilm[index].condition}</td>
-                        <td class="text-light">${listFilm[index].comingSoon}</td>
+                        <td class="text-light">${
+                          listFilm[index].comingSoon
+                        }</td>
                         <td class="text-light">${listFilm[index].director}</td>
                         <td class="text-light">${listFilm[index].time}</td>
                         <td class="text-light">${listFilm[index].episodes}</td>
                         <td class="text-light">${listFilm[index].status}</td>
                         <td class="text-light">${listFilm[index].language}</td>
-                        <td class="text-light">${listFilm[index].yearOfProduction}</td>
+                        <td class="text-light">${
+                          listFilm[index].yearOfProduction
+                        }</td>
                         <td class="text-light">${listFilm[index].country}</td>
                         <td class="text-light">${listFilm[index].genre}</td>
-                        <td class="text-light">${listFilm[index].actor.substring(0, 50) + "..."}</td>
+                        <td class="text-light">${
+                          listFilm[index].actor.substring(0, 50) + "..."
+                        }</td>
                         <td class="text-light">${listFilm[index].like}</td>
                         <td class="text-light">${listFilm[index].share}</td>
                         <td class="text-light">${listFilm[index].rating}</td>
-                        <td class="text-light">${listFilm[index].numberOfRatings}</td>
+                        <td class="text-light">${
+                          listFilm[index].numberOfRatings
+                        }</td>
                         <td class="text-light">${
                           listFilm[index].description.substring(0, 70) + "..."
                         }</td>
@@ -269,7 +275,7 @@ searchBtn.onclick = (e) => {
     alert("Vui lòng nhập từ khóa muốn tìm");
     render();
   }
-}
+};
 
 //Search by Enter button
 
@@ -310,7 +316,9 @@ function submit() {
               <td class="text-light">${listFilm[value].share}</td>
               <td class="text-light">${listFilm[value].rating}</td>
               <td class="text-light">${listFilm[value].numberOfRatings}</td>
-              <td class="text-light">${listFilm[value].description.substring(0, 100) + "..."}</td>
+              <td class="text-light">${
+                listFilm[value].description.substring(0, 100) + "..."
+              }</td>
               <td>
                   <button class="btn btn-danger" id="${
                     listFilm[value].id
